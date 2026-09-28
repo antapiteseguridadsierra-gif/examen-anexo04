@@ -154,7 +154,7 @@ const CONFIG = {
   // Enlace CSV publicado de tu pestaña PREGUNTAS (opcional). Vacío = usa las 100 preguntas de este archivo.
   PREGUNTAS_CSV_URL: "",
   // URL de tu Apps Script (aplicación web, termina en /exec). Sortea sin repetir entre colaboradores y guarda resultados.
-  WEBAPP_URL: "https://script.google.com/macros/s/AKfycbx6WNQAxDaLfppZ_SZ2y5p-VXOFwuAkuIjqKVRC0otOB0XDCTUl9RsozI6us5_GkHPUpQ/exec"
+  WEBAPP_URL: "https://script.google.com/macros/s/AKfycbyPVPh8p0RfNJkPzcY0gNG1euLhPvG3t2oHHsfA5SEV1rvLbpuXtKqNy6pmNfPcYuCX0Q/exec"
 };
 
 /* ============ BANCO DE PREGUNTAS (100) ============ */
@@ -258,7 +258,7 @@ $("b-elegir").onclick = async ()=>{
   ["nombre","dni","empresa","cargo","area"].forEach(id=>$(id).disabled=true);
   $("readyTxt").textContent=`Listo. Se eligieron ${examen.length} preguntas al azar para ti, sin repetirse.`;
   $("ready").classList.remove("hidden");
-  $("estadoBanco").textContent = modo==="local" ? "Nota para el administrador: sorteo local (falta configurar WEBAPP_URL, por eso no se evitan repeticiones entre distintos equipos)." : "";
+  $("estadoBanco").textContent = modo==="local" ? (CONFIG.WEBAPP_URL ? "Aviso para el administrador: no hubo conexión con el Google Sheets (revisa la implementación del Apps Script). El sorteo se hizo en este equipo." : "Aviso para el administrador: falta configurar WEBAPP_URL, por eso no se conecta a la hoja.") : "";
 };
 $("b-empezar").onclick = ()=>{
   idx=0;
@@ -314,13 +314,20 @@ function terminar(){
     ids:examen.map(p=>p.id).join(",")
   });
 }
-function guardar(d){
+async function guardar(d){
   const el=$("rGuardado");
-  if(!CONFIG.WEBAPP_URL){ el.textContent="Aviso para el administrador: falta configurar WEBAPP_URL, este resultado no se guardó en el Google Sheets."; return; }
+  if(!CONFIG.WEBAPP_URL){ el.innerHTML='<b style="color:var(--bad)">No se guardó en Google Sheets: falta configurar WEBAPP_URL.</b>'; return; }
   el.textContent="Guardando resultado…";
-  fetch(CONFIG.WEBAPP_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(d)})
-    .then(()=>{ el.textContent="Resultado enviado y registrado."; })
-    .catch(()=>{ el.textContent="No se pudo enviar el resultado. Avisa a tu supervisor y muéstrale esta pantalla."; });
+  try{
+    const url=CONFIG.WEBAPP_URL+"?action=guardar&data="+encodeURIComponent(JSON.stringify(d));
+    const res=await fetch(url,{cache:"no-store"});
+    const j=await res.json();
+    if(j && j.ok){ el.innerHTML='<b style="color:var(--ok)">✔ Resultado registrado en la hoja de Google Sheets.</b>'; return; }
+    throw new Error((j&&j.error)||"respuesta inválida");
+  }catch(err){
+    el.innerHTML='<b style="color:var(--bad)">✘ No se pudo registrar el resultado en la hoja.</b><br>Verifica tu conexión y pulsa Reintentar. Si persiste, avisa al administrador.<br><br><button class="btn sec" id="b-reint">Reintentar envío</button>';
+    $("b-reint").onclick=()=>guardar(d);
+  }
 }
 </script>
 </body>
