@@ -9,37 +9,34 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#F2F4F6; --card:#FFFFFF; --ink:#0F1B2D; --muted:#5A6678; --line:#D5DAE1;
-  --hv:#DCE600; --hv-dark:#B8C000; --ok:#17784A; --ok-bg:#E4F4EB;
-  --warn:#B45309; --warn-bg:#FEF3C7;
-  --bad:#B3261E; --bad-bg:#FBE8E6;
+  --paper:#F2F4F6;--card:#FFFFFF;--ink:#0F1B2D;--muted:#5A6678;--line:#D5DAE1;
+  --hv:#DCE600;--hv-dark:#B8C000;--ok:#17784A;--ok-bg:#E4F4EB;
+  --warn:#B45309;--warn-bg:#FEF3C7;--bad:#B3261E;--bad-bg:#FBE8E6;
   --head:"Barlow Semi Condensed","Arial Narrow",Arial,sans-serif;
   --body:Barlow,"Segoe UI",Arial,sans-serif;
 }
 *{box-sizing:border-box}
 html,body{margin:0}
 body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.5;min-height:100vh}
-.wrap{max-width:720px;margin:0 auto;padding:0 16px 48px}
+.wrap{max-width:740px;margin:0 auto;padding:0 16px 48px}
 header.top{background:var(--ink);color:#fff;border-bottom:6px solid var(--hv)}
-header.top .in{max-width:720px;margin:0 auto;padding:18px 16px}
+header.top .in{max-width:740px;margin:0 auto;padding:18px 16px}
 header.top h1{font-family:var(--head);font-weight:700;font-size:26px;line-height:1.1;margin:0}
 header.top p{margin:4px 0 0;color:#B9C3D3;font-size:15px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:22px;margin-top:20px}
 h2{font-family:var(--head);font-size:26px;line-height:1.15;margin:0 0 6px;font-weight:700}
 .lead{color:var(--muted);margin:0 0 18px}
 label.f{display:block;font-weight:600;margin:14px 0 4px}
-input[type=text],input[type=tel],textarea{width:100%;font:inherit;padding:12px;border:1.5px solid var(--line);border-radius:6px;background:#fff;color:var(--ink)}
-input[type=text]:focus,input[type=tel]:focus,textarea:focus{outline:3px solid var(--hv);border-color:var(--ink)}
+input[type=text],input[type=tel],textarea,select{width:100%;font:inherit;padding:12px;border:1.5px solid var(--line);border-radius:6px;background:#fff;color:var(--ink)}
+input[type=text]:focus,input[type=tel]:focus,textarea:focus,select:focus{outline:3px solid var(--hv);border-color:var(--ink)}
 textarea{resize:vertical;min-height:80px}
-.btn{font-family:var(--head);font-weight:700;font-size:20px;padding:12px 26px;border-radius:6px;border:2px solid var(--ink);background:var(--hv);color:var(--ink);cursor:pointer}
+.btn{font-family:var(--head);font-weight:700;font-size:20px;padding:12px 26px;border-radius:6px;border:2px solid var(--ink);background:var(--hv);color:var(--ink);cursor:pointer;transition:background .15s}
 .btn:hover:not(:disabled){background:var(--hv-dark)}
-.btn:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
 .btn:disabled{background:#E6E9ED;border-color:var(--line);color:#8A94A3;cursor:not-allowed}
 .btn.sec{background:#fff}
 .btn.wide{width:100%}
 .err{color:var(--bad);font-weight:600;min-height:1.4em;margin:10px 0 0}
-.rules{margin:0 0 18px;padding-left:20px}
-.rules li{margin:4px 0}
+.rules{margin:0 0 18px;padding-left:20px}.rules li{margin:4px 0}
 .hidden{display:none!important}
 .ready{margin-top:18px;padding:16px;border:2px solid var(--ok);background:var(--ok-bg);border-radius:8px}
 .ready p{margin:0 0 12px;font-weight:600;color:var(--ok)}
@@ -47,33 +44,54 @@ textarea{resize:vertical;min-height:80px}
 .prog .t{font-family:var(--head);font-weight:600;font-size:18px;white-space:nowrap}
 .bar{flex:1;height:10px;background:#DDE2E8;border-radius:5px;overflow:hidden}
 .bar i{display:block;height:100%;background:var(--ink);width:0;transition:width .25s}
-.tema{margin:0 0 6px;font-size:14px;color:var(--muted);font-weight:600}
-.qtext{font-family:var(--head);font-weight:600;font-size:24px;line-height:1.25;margin:0 0 16px}
+.tema{margin:0 0 4px;font-size:13px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.tipo-badge{display:inline-block;font-size:12px;font-weight:700;padding:2px 8px;border-radius:4px;margin-bottom:8px;font-family:var(--head)}
+.tipo-multiple{background:#E8F0FE;color:#1A56DB}
+.tipo-vf{background:#FEF3C7;color:#B45309}
+.tipo-relacionar{background:#F3E8FF;color:#7E22CE}
+.tipo-iperc{background:#E4F4EB;color:#17784A}
+.tipo-open{background:#FBE8E6;color:#B3261E}
+.qtext{font-family:var(--head);font-weight:600;font-size:23px;line-height:1.25;margin:0 0 16px}
+/* Opción múltiple */
 .opt{display:flex;gap:12px;align-items:flex-start;padding:13px 14px;border:1.5px solid var(--line);border-radius:6px;margin-bottom:10px;cursor:pointer;background:#fff;position:relative}
 .opt:hover{border-color:var(--ink)}
 .opt input{position:absolute;opacity:0}
 .opt .k{flex:0 0 30px;height:30px;border-radius:50%;border:2px solid var(--ink);display:grid;place-items:center;font-family:var(--head);font-weight:700;font-size:16px}
 .opt.sel{border-color:var(--ink);background:#FBFCE6;box-shadow:inset 4px 0 0 var(--hv-dark)}
 .opt.sel .k{background:var(--ink);color:var(--hv)}
-.opt:has(input:focus-visible){outline:3px solid var(--hv);outline-offset:1px}
-.nav{display:flex;justify-content:flex-end;margin-top:14px}
-/* IPERC table */
+/* V/F */
+.vf-stmt{background:#FFFBEB;border:1.5px solid var(--hv-dark);border-radius:8px;padding:14px 16px;margin-bottom:14px}
+.vf-stmt p{margin:0 0 10px;font-weight:600;font-size:16px}
+.vf-btns{display:flex;gap:10px}
+.vf-btn{flex:1;padding:10px;border-radius:6px;border:2px solid var(--line);background:#fff;font-family:var(--head);font-weight:700;font-size:17px;cursor:pointer;transition:all .15s}
+.vf-btn:hover{border-color:var(--ink)}
+.vf-btn.sel-v{background:#E4F4EB;border-color:var(--ok);color:var(--ok)}
+.vf-btn.sel-f{background:#FBE8E6;border-color:var(--bad);color:var(--bad)}
+/* Relacionar */
+.rel-wrap{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+@media(max-width:520px){.rel-wrap{grid-template-columns:1fr}}
+.rel-col h4{font-family:var(--head);font-size:15px;margin:0 0 8px;color:var(--muted)}
+.rel-item{padding:10px 12px;border:1.5px solid var(--line);border-radius:6px;margin-bottom:8px;font-size:15px}
+.rel-item b{display:block;font-family:var(--head);font-size:16px;color:var(--ink)}
+.rel-select{width:100%;margin-top:6px;padding:7px;border:1.5px solid var(--line);border-radius:5px;font:inherit;font-size:14px}
+.rel-select:focus{outline:2px solid var(--hv)}
+/* IPERC */
 .iperc-wrap{overflow-x:auto;margin:12px 0}
-.iperc-tbl{width:100%;border-collapse:collapse;font-size:15px}
+.iperc-tbl{width:100%;border-collapse:collapse;font-size:14px}
 .iperc-tbl th{background:var(--ink);color:#fff;padding:8px 10px;text-align:center;font-family:var(--head);font-weight:600}
 .iperc-tbl td{padding:6px 8px;border:1px solid var(--line);vertical-align:middle}
-.iperc-tbl input,.iperc-tbl select{width:100%;padding:6px;border:1px solid var(--line);border-radius:4px;font:inherit;font-size:14px}
-.iperc-tbl .nivel{font-weight:700;text-align:center;border-radius:4px;padding:4px 6px}
+.iperc-tbl input,.iperc-tbl select{width:100%;padding:6px;border:1px solid var(--line);border-radius:4px;font:inherit;font-size:13px}
+.nivel{font-weight:700;text-align:center;border-radius:4px;padding:4px 6px;font-size:13px}
 .nivel-bajo{background:#E4F4EB;color:#17784A}
 .nivel-medio{background:#FEF3C7;color:#B45309}
 .nivel-alto{background:#FBE8E6;color:#B3261E}
 .nivel-critico{background:#7B1D1D;color:#fff}
-.leyenda-iperc{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.6}
-.leyenda-iperc b{color:var(--ink)}
-/* open question */
+.leyenda-iperc{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.7}
+/* Open */
 .open-q{background:#FBFCE6;border:1.5px solid var(--hv-dark);border-radius:8px;padding:16px;margin-bottom:10px}
 .open-q .hint{font-size:13px;color:var(--muted);margin:6px 0 0}
-/* score */
+/* Resultado */
+.nav{display:flex;justify-content:flex-end;margin-top:14px}
 .score{display:flex;align-items:baseline;gap:8px;font-family:var(--head)}
 .score b{font-size:84px;line-height:1;font-weight:700}
 .score span{font-size:30px;color:var(--muted)}
@@ -86,37 +104,34 @@ textarea{resize:vertical;min-height:80px}
 .sso-msg.warn{background:var(--warn-bg);color:var(--warn);border:2px solid var(--warn)}
 .sso-msg.no{background:var(--bad-bg);color:var(--bad);border:2px solid var(--bad)}
 dl.dat{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:14px 0;padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-dl.dat dt{color:var(--muted)} dl.dat dd{margin:0;font-weight:600}
+dl.dat dt{color:var(--muted)}dl.dat dd{margin:0;font-weight:600}
 .rev{border:1px solid var(--line);border-radius:6px;padding:12px 14px;margin-top:10px}
-.rev.ok{border-left:6px solid var(--ok)} .rev.no{border-left:6px solid var(--bad)} .rev.warn{border-left:6px solid var(--warn)}
+.rev.ok{border-left:6px solid var(--ok)}.rev.no{border-left:6px solid var(--bad)}.rev.warn{border-left:6px solid var(--warn)}
 .rev p{margin:0 0 4px;font-weight:600}
 .rev .r{font-size:15px;margin:2px 0}
-.rev .r.b{color:var(--bad)} .rev .r.g{color:var(--ok)} .rev .r.w{color:var(--warn)}
+.rev .r.b{color:var(--bad)}.rev .r.g{color:var(--ok)}.rev .r.w{color:var(--warn)}
+.intento-badge{display:inline-block;background:var(--ink);color:var(--hv);font-family:var(--head);font-weight:700;font-size:13px;padding:3px 10px;border-radius:4px;margin-bottom:10px}
 .note{font-size:14px;color:var(--muted);margin-top:14px}
-.intento-badge{display:inline-block;background:var(--ink);color:var(--hv);font-family:var(--head);font-weight:700;font-size:14px;padding:3px 10px;border-radius:4px;margin-bottom:10px}
-@media (max-width:480px){.qtext{font-size:21px}.score b{font-size:68px}.card{padding:18px}}
+@media(max-width:480px){.qtext{font-size:20px}.score b{font-size:64px}.card{padding:16px}}
 @media print{header.top,.btn,.noprint{display:none!important}body{background:#fff}.card{border:none;padding:0}}
-@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
 </style>
 </head>
 <body>
 <header class="top"><div class="in">
   <h1>Anexo 04 · Inducción y orientación básica</h1>
-  <p>Evaluación del Área de Seguridad · D.S. 024-2016-EM y su modificatoria D.S. 023-2017-EM</p>
+  <p>Evaluación del Área de Seguridad · D.S. 024-2016-EM y modificatoria D.S. 023-2017-EM</p>
 </div></header>
-
 <main class="wrap">
 
 <!-- INICIO -->
 <section id="s-inicio" class="card">
   <h2>Datos del colaborador</h2>
-  <p class="lead">Completa tus datos y elige tus preguntas. Cada colaborador recibe preguntas distintas.</p>
+  <p class="lead">Completa tus datos. El sistema adaptará algunas preguntas a tu área de trabajo.</p>
   <ul class="rules">
-    <li>Son <b>20 preguntas</b> en total: <b>16 de opción múltiple</b> (aleatorias) + <b>4 preguntas especiales</b> obligatorias.</li>
+    <li>Son <b>20 preguntas</b> en total: <b>16 aleatorias</b> (opción múltiple, V/F, relacionar) + <b>4 especiales</b> obligatorias.</li>
     <li>Cada respuesta correcta vale 1 punto. Nota sobre 20.</li>
     <li>Apruebas con <b>16 puntos o más</b>.</li>
-    <li>Las 4 preguntas especiales incluyen: 1 tabla IPERC continuo y 3 preguntas de respuesta corta sobre el Anexo 04.</li>
-    <li>Debes responder cada pregunta para continuar.</li>
+    <li>El 2.° intento tendrá preguntas <b>diferentes</b> al primero.</li>
   </ul>
   <label class="f" for="nombre">Apellidos y nombres</label>
   <input id="nombre" type="text" autocomplete="name">
@@ -127,7 +142,8 @@ dl.dat dt{color:var(--muted)} dl.dat dd{margin:0;font-weight:600}
   <label class="f" for="cargo">Ocupación</label>
   <input id="cargo" type="text" autocomplete="off">
   <label class="f" for="area">Área de trabajo</label>
-  <input id="area" type="text" autocomplete="off">
+  <input id="area" type="text" autocomplete="off"
+    placeholder="Ej: Mina, Cocina, Construcción civil, Planta, Mantenimiento...">
   <p class="err" id="e-inicio" role="alert"></p>
   <button class="btn wide" id="b-elegir">Elegir mis preguntas</button>
   <div class="ready hidden" id="ready">
@@ -140,11 +156,12 @@ dl.dat dt{color:var(--muted)} dl.dat dd{margin:0;font-weight:600}
 <!-- EXAMEN -->
 <section id="s-examen" class="hidden">
   <div class="prog"><span class="t" id="pTxt"></span><div class="bar"><i id="pBar"></i></div></div>
-  <div class="card" id="cardExamen">
+  <div class="card">
     <span class="intento-badge" id="intentoBadge"></span>
     <p class="tema" id="qTema"></p>
+    <span class="tipo-badge" id="qTipoBadge"></span>
     <p class="qtext" id="qTxt"></p>
-    <div id="qOpts" role="radiogroup" aria-labelledby="qTxt"></div>
+    <div id="qOpts"></div>
     <div class="nav"><button class="btn" id="b-sig" disabled>Siguiente</button></div>
   </div>
 </section>
@@ -175,511 +192,954 @@ dl.dat dt{color:var(--muted)} dl.dat dd{margin:0;font-weight:600}
     <div id="rRev"></div>
   </div>
 </section>
-
 </main>
 
 <script>
-/* ============ CONFIGURACIÓN ============ */
+/* ======================================================
+   CONFIGURACIÓN
+====================================================== */
 const CONFIG = {
   TOTAL_OPCION: 16,
   NOTA_MINIMA: 16,
   NOTA_OBSERVACION: 13,
-  PREGUNTAS_CSV_URL: "",
   WEBAPP_URL: "https://script.google.com/macros/s/AKfycbxocAJPMDm-DNKNLH41gNmxQ8tUgDiQQV2RfWTl2st3Waro_tEUfcVMScyVcCyCZp6BSg/exec"
 };
 
-/* ============ BANCO SIN PREGUNTAS DE COMITÉ (IDs 9 removido, y otras de comité) ============ */
-const BANCO_LOCAL = [
-  {"id":1,"t":"Normativa y gestión SSO","q":"¿Qué norma aprueba el Reglamento de Seguridad y Salud Ocupacional en Minería?","o":["D.S. N.° 024-2016-EM","D.S. N.° 005-2012-TR","D.S. N.° 023-92-EM","Ley N.° 29783"],"a":0},
-  {"id":2,"t":"Normativa y gestión SSO","q":"¿Qué norma modificó diversos artículos y anexos del D.S. 024-2016-EM?","o":["D.S. N.° 029-2016-EM únicamente","D.S. N.° 023-2017-EM","Ley N.° 27444","R.M. N.° 375-2008-TR"],"a":1},
-  {"id":3,"t":"Normativa y gestión SSO","q":"Según el Art. 1 del reglamento, su objetivo principal es:","o":["Autorizar nuevas concesiones mineras","Sancionar al trabajador que sufre un accidente","Prevenir incidentes, accidentes de trabajo y enfermedades ocupacionales, promoviendo una cultura de prevención","Regular únicamente las remuneraciones de los mineros"],"a":2},
-  {"id":4,"t":"Normativa y gestión SSO","q":"¿Quién es el responsable de implementar y mantener el Sistema de Gestión de SSO en la unidad minera?","o":["Solo el médico ocupacional","El proveedor de alimentos","El titular de actividad minera","Únicamente el trabajador"],"a":2},
-  {"id":5,"t":"Normativa y gestión SSO","q":"El Anexo 4 del D.S. 024-2016-EM corresponde a:","o":["Permiso escrito para trabajo de alto riesgo","Cuadro estadístico de seguridad","Inducción y orientación básica","Formato de IPERC continuo"],"a":2},
-  {"id":6,"t":"Normativa y gestión SSO","q":"La Política de Seguridad y Salud Ocupacional es:","o":["Un permiso de ingreso a polvorín","Un contrato de alquiler de equipos","Una lista de precios de EPP","El documento donde la alta dirección expresa su compromiso con la prevención de riesgos"],"a":3},
-  {"id":7,"t":"Normativa y gestión SSO","q":"El Sistema de Gestión de SSO se basa en:","o":["Actuar solo cuando ocurre un accidente","Establecer política y objetivos, y lograrlos mediante planificación, ejecución, verificación y mejora continua","Cumplir solo cuando llega la autoridad","Delegar toda la seguridad al vigilante"],"a":1},
-  {"id":8,"t":"Normativa y gestión SSO","q":"El Reglamento Interno de SSO (RISSO) incluye, entre otros:","o":["El horario de refrigerio únicamente","Los precios del comedor","La lista de proveedores","Normas de seguridad y reglas de tránsito de la unidad minera"],"a":3},
-  {"id":10,"t":"Normativa y gestión SSO","q":"Es una obligación del trabajador según el D.S. 024-2016-EM:","o":["Ocultar los incidentes","Cumplir los estándares, PETS y normas de seguridad, y usar correctamente sus EPP","Trabajar sin ATS si la tarea es corta","Modificar los procedimientos a su criterio"],"a":1},
-  {"id":11,"t":"Normativa y gestión SSO","q":"Es un derecho fundamental del trabajador en minería:","o":["Paralizar su labor ante un peligro inminente y reportarlo, sin represalias","Ignorar la inducción","Elegir qué normas cumplir","Prestar su fotocheck"],"a":0},
-  {"id":12,"t":"Normativa y gestión SSO","q":"Los supervisores son responsables de:","o":["Delegar sus responsabilidades a los nuevos","Asegurar que su personal cumpla los estándares y PETS, y de controlar los riesgos de su área","Evitar reportar incidentes para no afectar estadísticas","Solo controlar la asistencia"],"a":1},
-  {"id":13,"t":"Normativa y gestión SSO","q":"Respecto a las empresas contratistas mineras y conexas, el titular de actividad minera:","o":["Solo verifica sus facturas","Es responsable de que cumplan el reglamento dentro de su unidad y de coordinar la gestión de SSO","No tiene ninguna responsabilidad","Solo responde por sus propios trabajadores"],"a":1},
-  {"id":14,"t":"Normativa y gestión SSO","q":"Las reglas de tránsito de la unidad minera son:","o":["Solo para vehículos livianos","Solo para visitantes","Opcionales para los conductores experimentados","De cumplimiento obligatorio para todo el personal, visitantes y contratistas"],"a":3},
-  {"id":15,"t":"Inducción y capacitación","q":"Según el Anexo 4 del D.S. 024-2016-EM, la inducción y orientación básica debe durar como mínimo:","o":["1 hora","8 horas","2 horas","30 minutos"],"a":1},
-  {"id":16,"t":"Inducción y capacitación","q":"La inducción del Anexo 4 tiene una vigencia de:","o":["Indefinida en cualquier unidad minera","1 año para la misma unidad minera o unidad de producción","1 mes","6 meses"],"a":1},
-  {"id":17,"t":"Inducción y capacitación","q":"Después de la inducción y orientación básica, el trabajador debe recibir:","o":["Ninguna capacitación adicional","Solo un examen médico","Capacitación específica teórico-práctica en el lugar de trabajo","Solo una charla de 5 minutos"],"a":2},
-  {"id":18,"t":"Inducción y capacitación","q":"El Anexo 5 del D.S. 024-2016-EM es:","o":["El código de colores y señales","El cuadro de estadística de incidentes","El formato de IPERC línea base","El programa de capacitación específica en el área de trabajo"],"a":3},
-  {"id":19,"t":"Inducción y capacitación","q":"La constancia de capacitación entregada al finalizar cada curso:","o":["Se entrega solo si el trabajador lo solicita","Tiene validez dentro del año de capacitación y para la misma unidad minera","Vale en cualquier empresa y de por vida","No es necesaria"],"a":1},
-  {"id":20,"t":"Inducción y capacitación","q":"El registro del Anexo 4 debe ser firmado por el trabajador y llevar el V°B° de:","o":["El almacenero","El conductor de la unidad","El cocinero del comedor","El Gerente de Seguridad y Salud Ocupacional o Ingeniero de Seguridad"],"a":3},
-  {"id":21,"t":"IPERC, ATS, PETS y PETAR","q":"¿Qué es un peligro según el D.S. 024-2016-EM?","o":["Un equipo de protección","Un accidente que ya ocurrió","Una fuente, situación o acto con potencial de causar daño","La probabilidad de que ocurra un accidente"],"a":2},
-  {"id":22,"t":"IPERC, ATS, PETS y PETAR","q":"¿Qué es un riesgo?","o":["La combinación de la probabilidad de que ocurra un evento peligroso y la severidad de sus consecuencias","Un formato administrativo","Una herramienta manual","Un tipo de uniforme"],"a":0},
-  {"id":23,"t":"IPERC, ATS, PETS y PETAR","q":"¿Qué significan las siglas IPERC?","o":["Inspección Periódica de Equipos y Riesgos Comunes","Informe Preliminar de Emergencias y Riesgos Críticos","Identificación de Peligros, Evaluación de Riesgos y Controles","Índice de Personal Expuesto a Riesgos Constantes"],"a":2},
-  {"id":24,"t":"IPERC, ATS, PETS y PETAR","q":"Según la jerarquía de controles del D.S. 024-2016-EM, el orden de prioridad correcto es:","o":["Sustitución, EPP, eliminación e ingeniería","Eliminación, sustitución, controles de ingeniería, controles administrativos/señalización y EPP","EPP, señalización, ingeniería, sustitución y eliminación","Solo capacitación y EPP"],"a":1},
-  {"id":25,"t":"IPERC, ATS, PETS y PETAR","q":"El uso del EPP en la jerarquía de controles de riesgo es:","o":["Reemplazo de la eliminación del peligro","La última acción a emplear, no la primera","La primera y única acción","Innecesario si hay supervisión"],"a":1},
-  {"id":26,"t":"IPERC, ATS, PETS y PETAR","q":"El IPERC de línea base se elabora:","o":["Solo cuando ocurre una fatalidad","Solo por el trabajador nuevo","Para los procesos y actividades de la unidad minera con un equipo evaluador, y se actualiza cuando cambian las condiciones","Una sola vez y nunca se revisa"],"a":2},
-  {"id":27,"t":"IPERC, ATS, PETS y PETAR","q":"El IPERC continuo lo realiza el trabajador:","o":["Cada 5 años","Antes de iniciar y durante la tarea, para identificar peligros y controlar riesgos en el momento","Solo el gerente","Al terminar el turno"],"a":1},
-  {"id":28,"t":"IPERC, ATS, PETS y PETAR","q":"En la matriz de evaluación del D.S. 024-2016-EM, un riesgo ALTO requiere medida correctiva en:","o":["6 meses","1 mes","No requiere plazo","0 a 24 horas"],"a":3},
-  {"id":29,"t":"IPERC, ATS, PETS y PETAR","q":"En la matriz de evaluación, un riesgo MEDIO requiere medida correctiva en:","o":["1 año","24 horas exactas","0 a 72 horas","No requiere medida"],"a":2},
-  {"id":30,"t":"IPERC, ATS, PETS y PETAR","q":"En la matriz de evaluación, un riesgo BAJO requiere medida correctiva en un plazo de:","o":["Inmediato, dentro de 1 hora","1 mes","6 años","Nunca"],"a":1},
-  {"id":31,"t":"IPERC, ATS, PETS y PETAR","q":"Si un peligro de riesgo alto (intolerable) no se puede controlar de inmediato:","o":["Se paralizan los trabajos en la labor","Se pide al trabajador que lo asuma","Se coloca solo una cinta","Se continúa con más cuidado"],"a":0},
-  {"id":32,"t":"IPERC, ATS, PETS y PETAR","q":"El ATS (Análisis de Trabajo Seguro) sirve para:","o":["Reportar accidentes a la autoridad","Registrar la asistencia","Calcular la planilla","Analizar los pasos de la tarea, sus peligros y las medidas preventivas antes de ejecutarla"],"a":3},
-  {"id":33,"t":"IPERC, ATS, PETS y PETAR","q":"Un PETS es:","o":["Un Plan de Emergencia Total del Sitio","Un Programa de Estímulos para el Trabajador Seguro","Un Procedimiento Escrito de Trabajo Seguro que describe el paso a paso de una tarea","Un Permiso Especial de Transporte Semanal"],"a":2},
-  {"id":34,"t":"IPERC, ATS, PETS y PETAR","q":"El formato de PETS (Anexo 10) incluye como secciones:","o":["Solo el nombre del trabajador","Solo el cronograma de vacaciones","Personal, EPP, equipos/herramientas/materiales, procedimiento y restricciones","Solo el costo de la tarea"],"a":2},
-  {"id":35,"t":"IPERC, ATS, PETS y PETAR","q":"Un estándar en seguridad minera establece:","o":["Un premio para el mejor trabajador","Las especificaciones y requisitos obligatorios para realizar una actividad de manera segura","Una sanción económica","Un precio referencial de equipos"],"a":1},
-  {"id":36,"t":"IPERC, ATS, PETS y PETAR","q":"¿Qué significa PETAR?","o":["Programa Especial de Transporte y Almacenamiento de Residuos","Plan de Evacuación y Traslado de Accidentados en Riesgo","Permiso Escrito de Tránsito en Áreas Restringidas","Permiso Escrito para Trabajo de Alto Riesgo"],"a":3},
-  {"id":37,"t":"IPERC, ATS, PETS y PETAR","q":"El PETAR debe ser autorizado y supervisado por:","o":["Solo el ejecutor de la tarea","El supervisor del trabajo y el jefe del área donde se realiza","Cualquier compañero","Nadie, es un trámite opcional"],"a":1},
-  {"id":38,"t":"IPERC, ATS, PETS y PETAR","q":"Un incidente es:","o":["Un suceso no deseado que no causó lesión pero pudo causarla, o que dañó equipos, propiedad o proceso","Una falta administrativa","Únicamente un accidente mortal","Una enfermedad ocupacional"],"a":0},
-  {"id":39,"t":"IPERC, ATS, PETS y PETAR","q":"Un incidente peligroso es:","o":["Una llegada tarde","Un accidente leve con curación simple","Un cambio de turno","Un suceso potencialmente riesgoso que pudo causar lesiones graves o la muerte, aunque nadie resultó lesionado"],"a":3},
-  {"id":40,"t":"IPERC, ATS, PETS y PETAR","q":"Un accidente de trabajo es:","o":["Un descanso médico por gripe","Un suceso repentino ocurrido por causa o con ocasión del trabajo que produce lesión, invalidez o muerte","Un accidente en vacaciones sin relación con el trabajo","Una enfermedad que se desarrolla por años de exposición"],"a":1},
-  {"id":41,"t":"Trabajos de alto riesgo","q":"Un trabajo de alto riesgo es aquel que:","o":["No requiere planificación","Es una tarea administrativa de rutina","Se realiza en la oficina","Tiene alto potencial de causar daño grave o la muerte y requiere permiso escrito (PETAR)"],"a":3},
-  {"id":42,"t":"Trabajos de alto riesgo","q":"Son ejemplos de trabajos de alto riesgo según el D.S. 024-2016-EM:","o":["Trabajos en altura, en espacios confinados, en caliente y con energías peligrosas","Redactar informes","Registrar asistencia","Limpieza de escritorios"],"a":0},
-  {"id":43,"t":"Trabajos de alto riesgo","q":"Para un trabajo en altura se debe contar obligatoriamente con:","o":["PETAR y arnés de cuerpo completo con línea de anclaje conectada a un punto seguro","Solo cinta de señalización","Ninguna medida si dura poco","Solo un cinturón de cuero"],"a":0},
-  {"id":44,"t":"Trabajos de alto riesgo","q":"El bloqueo y etiquetado (LOTO) se aplica para:","o":["Decorar el taller","Asegurar la energía cero de un equipo antes de repararlo o darle mantenimiento","Encender más rápido la maquinaria","Guardar herramientas"],"a":1},
-  {"id":45,"t":"Trabajos de alto riesgo","q":"Antes de ingresar a un espacio confinado se debe:","o":["Encender fuego para iluminar","Contar con PETAR, medir la atmósfera y tener vigía en el exterior","Ingresar solo y sin comunicación","Ingresar rápido sin equipos"],"a":1},
-  {"id":46,"t":"Trabajos de alto riesgo","q":"En trabajos en caliente (soldadura, corte con llama) es obligatorio:","o":["Almacenar combustible junto a la zona de corte","Contar con PETAR, extintor cercano y vigía de fuego","Usar ropa sintética suelta","Trabajar sin extintor"],"a":1},
-  {"id":47,"t":"Trabajos de alto riesgo","q":"Para prevenir el desprendimiento de rocas en labores subterráneas se debe:","o":["Trabajar bajo rocas sueltas si es rápido","Realizar el desatado y verificar el sostenimiento antes de ingresar o trabajar","Golpear el techo con la mano","Ingresar sin revisar el techo"],"a":1},
-  {"id":48,"t":"Trabajos de alto riesgo","q":"Ante un equipo pesado en la vía, el vehículo liviano debe:","o":["Tocar bocina y acelerar","Ceder el paso y mantener distancia segura","Adelantarlo por la berma","Cruzar frente a él"],"a":1},
-  {"id":49,"t":"Trabajos de alto riesgo","q":"El manejo y transporte de explosivos solo puede ser realizado por:","o":["Cualquier ayudante","Personal sin licencia","Personal autorizado por SUCAMEC y capacitado","Visitantes con experiencia"],"a":2},
-  {"id":50,"t":"Trabajos de alto riesgo","q":"Durante una voladura se debe:","o":["Retirar las señales para no asustar","Permanecer cerca para observar","Mantener el tránsito normal","Evacuar y señalizar el área, y colocar vigías en lugares estratégicos"],"a":3},
-  {"id":51,"t":"Trabajos de alto riesgo","q":"Tras una voladura, antes de reingresar a la labor se debe:","o":["Ventilar y medir los gases residuales","Esperar solo un minuto sin medir","Encender un fósforo para comprobar el aire","Ingresar inmediatamente"],"a":0},
-  {"id":52,"t":"Trabajos de alto riesgo","q":"Durante un izaje de carga está prohibido:","o":["Permanecer o pasar debajo de la carga suspendida","Inspeccionar los accesorios de izaje","Usar señalero capacitado","Delimitar el área"],"a":0},
-  {"id":53,"t":"Trabajos de alto riesgo","q":"Las instalaciones y equipos eléctricos solo deben ser intervenidos por:","o":["Cualquier trabajador con herramientas","Personal autorizado, calificado y con energía bloqueada","Un visitante","Personal que no conoce el equipo"],"a":1},
-  {"id":54,"t":"Trabajos de alto riesgo","q":"Si detectas un peligro que no puedes controlar en tu tarea, debes:","o":["Continuar y avisar al terminar el turno","Taparlo con cinta y seguir","Esperar a que otro se accidente","Paralizar el trabajo y reportarlo de inmediato a tu supervisor"],"a":3},
-  {"id":55,"t":"EPP","q":"El reglamento prohíbe el ingreso a la unidad minera sin:","o":["Celular","EPP con especificaciones técnicas y certificados de calidad","Almuerzo","Mochila"],"a":1},
-  {"id":56,"t":"EPP","q":"El equipo básico del trabajador minero incluye:","o":["Solo gorra","Solo guantes de tela","Casco con carrilera, lentes, protector auditivo, guantes, botas de seguridad y ropa reflectiva","Sandalias y polo"],"a":2},
-  {"id":57,"t":"EPP","q":"La lámpara minera y su correa portalámpara sirven para:","o":["Calentar las manos","Adornar el casco","Comunicarse con la superficie","Contar con iluminación personal en la labor"],"a":3},
-  {"id":58,"t":"EPP","q":"El autorescatador proporciona:","o":["Comunicación por radio","Aire respirable ante una emergencia con humo o gases para escapar de la labor","Agua potable","Protección contra ruido"],"a":1},
-  {"id":59,"t":"EPP","q":"Un respirador es efectivo cuando:","o":["Es de tela y se comparte","Está roto pero se usa","Se lleva colgado del cuello","Es el adecuado al contaminante, tiene el filtro correcto y ajusta bien al rostro"],"a":3},
-  {"id":60,"t":"EPP","q":"Si tu EPP está deteriorado o defectuoso debes:","o":["Prestárselo a un compañero","Reportarlo y solicitar su reemplazo de inmediato","Seguir usándolo hasta que falle","Repararlo con cinta"],"a":1},
-  {"id":61,"t":"EPP","q":"El protector auditivo es obligatorio cuando el ruido supera:","o":["50 dB(A)","10 dB(A)","30 dB(A)","85 dB(A) en una jornada de 8 horas"],"a":3},
-  {"id":62,"t":"EPP","q":"Quien debe proporcionar el EPP al trabajador es:","o":["El compañero de mayor edad","El empleador o titular, sin costo para el trabajador","El propio trabajador con su dinero","El vigilante"],"a":1},
-  {"id":63,"t":"Higiene ocupacional","q":"Los agentes de higiene ocupacional incluyen:","o":["Solo los administrativos","Solo los agentes económicos","Ninguno de los anteriores","Agentes físicos, químicos, biológicos y factores ergonómicos"],"a":3},
-  {"id":64,"t":"Higiene ocupacional","q":"El nivel máximo de ruido permitido para una jornada de 8 horas según el D.S. 024-2016-EM es:","o":["85 dB(A)","100 dB(A)","150 dB(A)","120 dB(A)"],"a":0},
-  {"id":65,"t":"Higiene ocupacional","q":"Con 88 dB(A) de exposición al ruido, el tiempo máximo de exposición en la jornada es:","o":["8 horas","16 horas","12 horas","4 horas"],"a":3},
-  {"id":66,"t":"Higiene ocupacional","q":"Con 94 dB(A) de exposición al ruido, el tiempo máximo de exposición en la jornada es:","o":["4 horas","8 horas","1 hora","Sin límite"],"a":2},
-  {"id":67,"t":"Higiene ocupacional","q":"El contenido mínimo de oxígeno en el aire de una labor minera es:","o":["10 %","2 %","19.5 %","5 %"],"a":2},
-  {"id":68,"t":"Higiene ocupacional","q":"El límite de exposición (TWA) del monóxido de carbono (CO) según el Anexo 15 es:","o":["0.25 ppm","250 ppm","2500 ppm","25 ppm"],"a":3},
-  {"id":69,"t":"Higiene ocupacional","q":"El límite de exposición (TWA) del ácido sulfhídrico (H₂S) según el Anexo 15 es:","o":["500 ppm","100 ppm","1000 ppm","10 ppm"],"a":3},
-  {"id":70,"t":"Higiene ocupacional","q":"La exposición prolongada al polvo de sílice cristalino puede causar:","o":["Conjuntivitis alérgica","Silicosis","Insolación","Fractura ósea"],"a":1},
-  {"id":71,"t":"Higiene ocupacional","q":"La norma básica de ergonomía referenciada en el D.S. 024-2016-EM es:","o":["D.S. N.° 011-2006-VIVIENDA","R.M. N.° 050-2013-TR","R.M. N.° 375-2008-TR","Ley N.° 30222"],"a":2},
-  {"id":72,"t":"Higiene ocupacional","q":"Para trabajos con esfuerzo físico, movimientos repetitivos o malas posturas, se debe aplicar:","o":["Cargar más peso para terminar antes","Ignorar el dolor","Mayor velocidad de trabajo","Prevención ergonómica, pausas y técnicas correctas de manipulación de cargas"],"a":3},
-  {"id":73,"t":"Higiene ocupacional","q":"El nivel de iluminación recomendado en pasillos, comedores y servicios higiénicos es de:","o":["20 000 lux","150 lux","5 lux","0 lux"],"a":1},
-  {"id":74,"t":"Código de colores","q":"El código de colores y señales de seguridad se basa en la norma:","o":["NTP 399.013 únicamente","ISO 9001","NTP 900.001","NTP 399.010-1"],"a":3},
-  {"id":75,"t":"Código de colores","q":"En seguridad, el color rojo indica:","o":["Información de salida","Advertencia","Obligación","Prohibición y equipos contra incendio"],"a":3},
-  {"id":76,"t":"Código de colores","q":"En seguridad, el color azul indica:","o":["Obligación o instrucción, como el uso obligatorio de EPP","Salida de emergencia","Prohibición","Peligro eléctrico"],"a":0},
-  {"id":77,"t":"Código de colores","q":"En seguridad, el color amarillo indica:","o":["Obligación","Advertencia o zonas de peligro","Prohibición","Condición segura"],"a":1},
-  {"id":78,"t":"Código de colores","q":"En seguridad, el color verde indica:","o":["Peligro","Obligación","Prohibición","Condición segura y de emergencia (salidas, primeros auxilios)"],"a":3},
-  {"id":79,"t":"Código de colores","q":"Para conocer los peligros de una sustancia química se consulta:","o":["La publicidad del envase","La opinión de un compañero","Su hoja de datos de seguridad (HDS) y su rotulado","Su precio"],"a":2},
-  {"id":80,"t":"Código de colores","q":"Las sustancias peligrosas deben almacenarse:","o":["Junto a las fuentes de calor","Sin etiqueta","Mezcladas en un solo lugar","Etiquetadas, señalizadas, separadas por compatibilidad y con contención de derrames"],"a":3},
-  {"id":81,"t":"Código de colores","q":"Los cilindros de gases industriales se identifican por:","o":["No se identifican","El gusto del proveedor","Colores establecidos por norma técnica (NTP 399.013)","Su peso únicamente"],"a":2},
-  {"id":82,"t":"Primeros auxilios y RCP","q":"En la RCP en adultos, la relación correcta es de:","o":["5 compresiones y 30 ventilaciones","10 compresiones y 10 ventilaciones","30 compresiones y 2 ventilaciones","2 compresiones y 30 ventilaciones"],"a":2},
-  {"id":83,"t":"Primeros auxilios y RCP","q":"Lo primero que se debe hacer ante un accidentado es:","o":["Verificar que la escena sea segura antes de auxiliar","Darle agua","Tomarle fotos","Moverlo de inmediato sin evaluar"],"a":0},
-  {"id":84,"t":"Primeros auxilios y RCP","q":"Ante una hemorragia externa importante se debe:","o":["Retirar objetos clavados de golpe","Lavarla con alcohol y esperar","Aplicar presión directa sobre la herida con un apósito limpio","Dar de beber a la víctima"],"a":2},
-  {"id":85,"t":"Primeros auxilios y RCP","q":"Ante salpicadura de una sustancia química en los ojos se debe:","o":["Lavarlos con abundante agua en el lava ojos durante al menos 15 minutos","Frotarlos con la mano","Aplicar pasta dental","Cerrar los ojos y esperar"],"a":0},
-  {"id":86,"t":"Primeros auxilios y RCP","q":"Si se sospecha lesión de columna tras una caída, se debe:","o":["No mover a la víctima salvo peligro inminente y pedir ayuda especializada","Levantarla de los brazos","Hacerla caminar","Sentarla rápido"],"a":0},
-  {"id":87,"t":"Plan de emergencias","q":"El plan de emergencias de la unidad minera define, entre otros:","o":["Solo la lista de vehículos","Solo los horarios de turnos","Responsables, alarma, comunicaciones, rutas de evacuación y puntos de reunión","Solo los precios del comedor"],"a":2},
-  {"id":88,"t":"Plan de emergencias","q":"El punto de reunión sirve para:","o":["Agrupar al personal en un lugar seguro y realizar el conteo tras evacuar","Reuniones de ventas","Almorzar","Guardar herramientas"],"a":0},
-  {"id":89,"t":"Plan de emergencias","q":"Las estaciones de refugio minero se ubican a una distancia no mayor de:","o":["10 kilómetros","2 kilómetros","500 metros de los frentes de trabajo","5 kilómetros"],"a":2},
-  {"id":90,"t":"Plan de emergencias","q":"La capacidad mínima de un refugio según el D.S. 024-2016-EM es de:","o":["20 m² por persona","1.5 m² por persona","0.1 m² por persona","No hay mínimo"],"a":1},
-  {"id":91,"t":"Plan de emergencias","q":"Un refugio minero debe tener reserva de alimentos y agua para:","o":["1 comida","No requiere reservas","4 horas","Un mínimo de 3 días según su aforo"],"a":3},
-  {"id":92,"t":"Plan de emergencias","q":"Las estaciones de refugio deben usarse:","o":["Como sala de reuniones","Como almacén de materiales","Como comedor","Solo para casos de emergencia, no como comedor o almacén"],"a":3},
-  {"id":93,"t":"Plan de emergencias","q":"Un refugio minero debe contar como mínimo con:","o":["Solo una mesa","Solo sillas","Camillas, botiquín, botellas de oxígeno y extintores","Solo una radio"],"a":2},
-  {"id":94,"t":"Plan de emergencias","q":"Ante la alarma de emergencia, el trabajador debe:","o":["Mantener la calma, seguir las rutas señalizadas y dirigirse al punto de reunión o refugio","Correr en cualquier dirección","Volver por sus pertenencias","Ignorar la alarma"],"a":0},
-  {"id":95,"t":"Notificación y estadísticas","q":"El accidente de trabajo mortal y el incidente peligroso se notifican a la autoridad en un plazo de:","o":["24 horas","30 días","1 año","6 meses"],"a":0},
-  {"id":96,"t":"Notificación y estadísticas","q":"Los accidentes de trabajo se clasifican en:","o":["Solo mortal","Ninguna clasificación","Leve, incapacitante y mortal","Solo leve"],"a":2},
-  {"id":97,"t":"Notificación y estadísticas","q":"El accidente incapacitante puede ser:","o":["Solo temporal","Total temporal, parcial temporal, parcial permanente o total permanente","Solo parcial","Solo permanente"],"a":1},
-  {"id":98,"t":"Notificación y estadísticas","q":"La tabla de días cargo del D.S. 024-2016-EM asigna a la muerte:","o":["6 000 días","100 días","No se asignan días","60 días"],"a":0},
-  {"id":99,"t":"Notificación y estadísticas","q":"Las estadísticas mensuales de seguridad se presentan como máximo:","o":["6 meses después","10 días calendario vencido cada mes","No se presentan","Al final del año"],"a":1},
-  {"id":100,"t":"Notificación y estadísticas","q":"En la investigación de un accidente, las causas se analizan como:","o":["Causas inmediatas (actos y condiciones subestándares), causas básicas (factores personales y de trabajo) y falta de gestión","Solo el clima","Solo mala suerte","Solo el error del accidentado"],"a":0}
+/* ======================================================
+   DETECCIÓN DE ÁREA
+====================================================== */
+function detectarArea(texto){
+  const t = texto.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+  if(/mina|labor|subterran|galeria|tajeo|voladura|perfor/.test(t)) return "mina";
+  if(/cocin|aliment|comedor|nutrici|refectorio/.test(t)) return "cocina";
+  if(/construcc|civil|obra|edificac|concreto|encofr/.test(t)) return "construccion";
+  if(/plant|proceso|beneficio|flotac|moliend|chancad|hidrometal/.test(t)) return "planta";
+  if(/mantenim|mecanico|electrico|taller|soldad/.test(t)) return "mantenimiento";
+  if(/almac|logistic|bodega|despacho/.test(t)) return "almacen";
+  return "general";
+}
+
+/* ======================================================
+   BANCO PRINCIPAL — SIN ERGONOMÍA, SIN COMITÉ
+   Tipos: "multiple" | "vf" | "relacionar"
+====================================================== */
+const BANCO = [
+
+/* ---------- NORMATIVA ---------- */
+{id:1,t:"Normativa SSO",tipo:"multiple",
+ q:"¿Qué norma aprueba el Reglamento de Seguridad y Salud Ocupacional en Minería vigente?",
+ o:["D.S. N.° 024-2016-EM","D.S. N.° 005-2012-TR","D.S. N.° 023-92-EM","Ley N.° 29783"],a:0},
+
+{id:2,t:"Normativa SSO",tipo:"multiple",
+ q:"¿Qué norma modificó artículos y anexos del D.S. 024-2016-EM?",
+ o:["D.S. N.° 029-2016-EM","D.S. N.° 023-2017-EM","Ley N.° 27444","R.M. N.° 375-2008-TR"],a:1},
+
+{id:3,t:"Normativa SSO",tipo:"multiple",
+ q:"El objetivo principal del D.S. 024-2016-EM es:",
+ o:["Autorizar concesiones mineras","Sancionar al trabajador accidentado",
+    "Prevenir incidentes, accidentes y enfermedades ocupacionales promoviendo una cultura de prevención",
+    "Regular solo las remuneraciones"],a:2},
+
+{id:4,t:"Normativa SSO",tipo:"multiple",
+ q:"¿Quién es el responsable de implementar y mantener el Sistema de Gestión de SSO en la unidad minera?",
+ o:["Solo el médico ocupacional","El proveedor de alimentos","El titular de actividad minera","Únicamente el trabajador"],a:2},
+
+{id:5,t:"Normativa SSO",tipo:"multiple",
+ q:"El Reglamento Interno de SSO (RISSO) incluye, entre otros:",
+ o:["El horario de refrigerio únicamente","Los precios del comedor","La lista de proveedores",
+    "Normas de seguridad y reglas de tránsito de la unidad minera"],a:3},
+
+{id:6,t:"Normativa SSO",tipo:"vf",
+ q:"Evalúa si cada afirmación sobre el D.S. 024-2016-EM es VERDADERA o FALSA:",
+ stmts:[
+   {s:"El titular de actividad minera puede delegar toda su responsabilidad en SSO a una empresa contratista y quedar exento.",correcto:false},
+   {s:"La Política de SSO debe ser comunicada a todos los trabajadores, incluidos contratistas.",correcto:true}
+ ]},
+
+{id:7,t:"Normativa SSO",tipo:"multiple",
+ q:"Las reglas de tránsito de la unidad minera son:",
+ o:["Solo para vehículos livianos","Solo para visitantes","Opcionales para conductores experimentados",
+    "De cumplimiento obligatorio para todo el personal, visitantes y contratistas"],a:3},
+
+/* ---------- OBLIGACIONES SUPERVISORES Y TRABAJADORES ---------- */
+{id:10,t:"Obligaciones del trabajador",tipo:"multiple",
+ q:"Según el D.S. 024-2016-EM, es una obligación del trabajador:",
+ o:["Ocultar los incidentes para no afectar estadísticas",
+    "Cumplir los estándares, PETS y normas de seguridad, y usar correctamente sus EPP",
+    "Trabajar sin ATS si la tarea es corta",
+    "Modificar los procedimientos a su criterio"],a:1},
+
+{id:11,t:"Obligaciones del trabajador",tipo:"multiple",
+ q:"Es un derecho fundamental del trabajador en minería según el D.S. 024-2016-EM:",
+ o:["Paralizar su labor ante un peligro inminente y reportarlo, sin represalias",
+    "Ignorar la inducción si ya tiene experiencia",
+    "Elegir qué normas cumplir según su criterio",
+    "Prestar su fotocheck a un compañero"],a:0},
+
+{id:12,t:"Obligaciones del supervisor",tipo:"multiple",
+ q:"El supervisor de seguridad es responsable de:",
+ o:["Delegar todas sus responsabilidades a los trabajadores nuevos",
+    "Asegurar que su personal cumpla los estándares y PETS, y controlar los riesgos de su área",
+    "Evitar reportar incidentes para no afectar las estadísticas del área",
+    "Solo controlar la asistencia del personal"],a:1},
+
+{id:13,t:"Obligaciones del supervisor",tipo:"multiple",
+ q:"Antes de iniciar una tarea de alto riesgo, el supervisor debe:",
+ o:["Esperar a que el trabajador lo solicite",
+    "Verificar que exista PETAR firmado, ATS elaborado y EPP adecuado antes de autorizar el inicio",
+    "Firmar el PETAR después de terminada la tarea",
+    "Solo verificar la asistencia"],a:1},
+
+{id:14,t:"Obligaciones del supervisor",tipo:"vf",
+ q:"Evalúa si cada afirmación sobre las obligaciones del supervisor es VERDADERA o FALSA:",
+ stmts:[
+   {s:"El supervisor puede permitir el inicio de un trabajo de alto riesgo sin PETAR si la tarea es urgente.",correcto:false},
+   {s:"El supervisor debe realizar inspecciones periódicas de su área e identificar condiciones subestándares.",correcto:true}
+ ]},
+
+{id:15,t:"Obligaciones del trabajador",tipo:"vf",
+ q:"Evalúa si cada afirmación sobre las obligaciones del trabajador es VERDADERA o FALSA:",
+ stmts:[
+   {s:"El trabajador puede negarse a usar su EPP si considera que la tarea es rápida y sin riesgo.",correcto:false},
+   {s:"El trabajador tiene la obligación de reportar todo incidente o accidente, por leve que sea.",correcto:true}
+ ]},
+
+{id:16,t:"Obligaciones – Relacionar",tipo:"relacionar",
+ q:"Relaciona cada obligación con quien corresponde (Supervisor o Trabajador):",
+ pares:[
+   {izq:"Elaborar el ATS antes de iniciar la tarea",der:"Trabajador"},
+   {izq:"Verificar que el PETAR esté firmado antes de autorizar el trabajo",der:"Supervisor"},
+   {izq:"Usar correctamente el EPP asignado",der:"Trabajador"},
+   {izq:"Realizar inspecciones de seguridad en su área",der:"Supervisor"}
+ ]},
+
+/* ---------- INDUCCIÓN Y CAPACITACIÓN ---------- */
+{id:20,t:"Inducción y capacitación",tipo:"multiple",
+ q:"Según el Anexo 4, la inducción y orientación básica debe durar como mínimo:",
+ o:["1 hora","8 horas","2 horas","30 minutos"],a:1},
+
+{id:21,t:"Inducción y capacitación",tipo:"multiple",
+ q:"La inducción del Anexo 4 tiene una vigencia de:",
+ o:["Indefinida en cualquier unidad minera","1 año para la misma unidad minera","1 mes","6 meses"],a:1},
+
+{id:22,t:"Inducción y capacitación",tipo:"multiple",
+ q:"Después de la inducción básica, el trabajador debe recibir:",
+ o:["Ninguna capacitación adicional","Solo un examen médico",
+    "Capacitación específica teórico-práctica en el lugar de trabajo","Solo una charla de 5 minutos"],a:2},
+
+{id:23,t:"Inducción y capacitación",tipo:"multiple",
+ q:"El registro del Anexo 4 debe llevar el V°B° de:",
+ o:["El almacenero","El conductor","El cocinero",
+    "El Gerente de SSO o Ingeniero de Seguridad"],a:3},
+
+/* ---------- IPERC ---------- */
+{id:30,t:"IPERC",tipo:"multiple",
+ q:"¿Qué es un peligro según el D.S. 024-2016-EM?",
+ o:["Un equipo de protección","Un accidente que ya ocurrió",
+    "Una fuente, situación o acto con potencial de causar daño",
+    "La probabilidad de que ocurra un accidente"],a:2},
+
+{id:31,t:"IPERC",tipo:"multiple",
+ q:"¿Qué es un riesgo?",
+ o:["La combinación de la probabilidad de que ocurra un evento peligroso y la severidad de sus consecuencias",
+    "Un formato administrativo","Una herramienta manual","Un tipo de uniforme"],a:0},
+
+{id:32,t:"IPERC",tipo:"multiple",
+ q:"¿Qué significan las siglas IPERC?",
+ o:["Inspección Periódica de Equipos y Riesgos Comunes",
+    "Informe Preliminar de Emergencias y Riesgos Críticos",
+    "Identificación de Peligros, Evaluación de Riesgos y Controles",
+    "Índice de Personal Expuesto a Riesgos Constantes"],a:2},
+
+{id:33,t:"IPERC",tipo:"multiple",
+ q:"Según la jerarquía de controles del D.S. 024-2016-EM, el orden correcto de prioridad es:",
+ o:["Sustitución → EPP → Eliminación → Ingeniería",
+    "Eliminación → Sustitución → Ingeniería → Administrativo/Señalización → EPP",
+    "EPP → Señalización → Ingeniería → Sustitución → Eliminación",
+    "Solo capacitación y EPP"],a:1},
+
+{id:34,t:"IPERC",tipo:"multiple",
+ q:"El IPERC continuo lo realiza el trabajador:",
+ o:["Cada 5 años","Antes de iniciar y durante la tarea para identificar peligros y controlar riesgos",
+    "Solo el gerente de área","Al terminar el turno"],a:1},
+
+{id:35,t:"IPERC",tipo:"multiple",
+ q:"En la matriz de evaluación, un riesgo ALTO requiere medida correctiva en:",
+ o:["6 meses","1 mes","No requiere plazo","0 a 24 horas"],a:3},
+
+{id:36,t:"IPERC",tipo:"multiple",
+ q:"En la matriz de evaluación, un riesgo MEDIO requiere medida correctiva en:",
+ o:["1 año","24 horas exactas","0 a 72 horas","No requiere medida"],a:2},
+
+{id:37,t:"IPERC",tipo:"multiple",
+ q:"Si un riesgo es ALTO (intolerable) y no puede controlarse de inmediato, se debe:",
+ o:["Paralizar los trabajos en esa labor",
+    "Pedir al trabajador que lo asuma bajo su responsabilidad",
+    "Colocar solo cinta de señalización y continuar",
+    "Continuar con más cuidado"],a:0},
+
+{id:38,t:"IPERC",tipo:"vf",
+ q:"Evalúa si cada afirmación sobre el IPERC continuo es VERDADERA o FALSA:",
+ stmts:[
+   {s:"El IPERC continuo puede realizarse solo al finalizar la tarea, como registro.",correcto:false},
+   {s:"Si durante la tarea cambian las condiciones del entorno, el trabajador debe actualizar el IPERC continuo.",correcto:true}
+ ]},
+
+{id:39,t:"IPERC – Relacionar",tipo:"relacionar",
+ q:"Relaciona cada nivel de riesgo con su plazo de medida correctiva según el D.S. 024-2016-EM:",
+ pares:[
+   {izq:"Riesgo BAJO",der:"1 mes"},
+   {izq:"Riesgo MEDIO",der:"0 a 72 horas"},
+   {izq:"Riesgo ALTO",der:"0 a 24 horas"},
+   {izq:"Riesgo CRÍTICO (intolerable)",der:"Paralización inmediata"}
+ ]},
+
+/* ---------- ATS ---------- */
+{id:40,t:"ATS",tipo:"multiple",
+ q:"El ATS (Análisis de Trabajo Seguro) sirve para:",
+ o:["Reportar accidentes a la autoridad","Registrar la asistencia del personal","Calcular la planilla",
+    "Analizar los pasos de la tarea, sus peligros y las medidas preventivas antes de ejecutarla"],a:3},
+
+{id:41,t:"ATS",tipo:"multiple",
+ q:"¿Quién elabora el ATS?",
+ o:["Solo el ingeniero de seguridad","Solo el gerente de área",
+    "El trabajador o cuadrilla que ejecutará la tarea, con su supervisor",
+    "El médico ocupacional"],a:2},
+
+{id:42,t:"ATS",tipo:"multiple",
+ q:"El ATS debe elaborarse:",
+ o:["Una sola vez al año por área","Solo cuando hay un accidente",
+    "Antes de iniciar cada tarea, especialmente las de alto riesgo",
+    "Al finalizar el turno como resumen"],a:2},
+
+{id:43,t:"ATS",tipo:"multiple",
+ q:"Si durante la ejecución de la tarea cambian las condiciones de trabajo, el ATS debe:",
+ o:["Ignorarse porque ya fue aprobado","Archivarse sin modificar",
+    "Revisarse y actualizarse antes de continuar",
+    "Eliminarse y continuar sin ATS"],a:2},
+
+{id:44,t:"ATS",tipo:"vf",
+ q:"Evalúa si cada afirmación sobre el ATS es VERDADERA o FALSA:",
+ stmts:[
+   {s:"El ATS reemplaza al PETAR en trabajos de alto riesgo.",correcto:false},
+   {s:"El ATS identifica paso a paso los peligros de la tarea y las medidas de control para cada paso.",correcto:true}
+ ]},
+
+/* ---------- PETS ---------- */
+{id:50,t:"PETS",tipo:"multiple",
+ q:"Un PETS (Procedimiento Escrito de Trabajo Seguro) es:",
+ o:["Un Plan de Emergencia Total del Sitio",
+    "Un Programa de Estímulos para el Trabajador Seguro",
+    "Un documento que describe paso a paso cómo realizar una tarea de manera segura",
+    "Un Permiso Especial de Transporte Semanal"],a:2},
+
+{id:51,t:"PETS",tipo:"multiple",
+ q:"El formato de PETS (Anexo 10) incluye como secciones obligatorias:",
+ o:["Solo el nombre del trabajador","Solo el cronograma de vacaciones",
+    "Personal, EPP, equipos/herramientas/materiales, procedimiento paso a paso y restricciones",
+    "Solo el costo de la tarea"],a:2},
+
+{id:52,t:"PETS",tipo:"multiple",
+ q:"¿Cuándo debe el trabajador seguir el PETS?",
+ o:["Solo cuando el supervisor está presente","Solo en tareas nuevas",
+    "Siempre que realice la tarea descrita, sin excepción",
+    "Solo si lo recuerda"],a:2},
+
+{id:53,t:"PETS",tipo:"multiple",
+ q:"Si un trabajador detecta que el PETS no refleja la realidad del trabajo actual, debe:",
+ o:["Ignorarlo y trabajar a su manera",
+    "Reportarlo a su supervisor para que se actualice antes de continuar",
+    "Modificarlo él mismo sin avisar",
+    "Archivarlo y continuar sin procedimiento"],a:1},
+
+{id:54,t:"PETS",tipo:"vf",
+ q:"Evalúa si cada afirmación sobre el PETS es VERDADERA o FALSA:",
+ stmts:[
+   {s:"Un PETS puede ser elaborado por cualquier trabajador de manera individual sin revisión del área de SSO.",correcto:false},
+   {s:"El PETS debe ser revisado y actualizado cuando cambian los equipos, materiales o condiciones del trabajo.",correcto:true}
+ ]},
+
+{id:55,t:"PETS – Relacionar",tipo:"relacionar",
+ q:"Relaciona cada documento con su propósito principal:",
+ pares:[
+   {izq:"PETS",der:"Describe el paso a paso seguro de una tarea"},
+   {izq:"ATS",der:"Analiza peligros de cada paso antes de iniciar"},
+   {izq:"PETAR",der:"Autoriza formalmente un trabajo de alto riesgo"},
+   {izq:"IPERC continuo",der:"Identifica peligros y controles en el momento de la tarea"}
+ ]},
+
+/* ---------- PETAR ---------- */
+{id:60,t:"PETAR",tipo:"multiple",
+ q:"¿Qué significa PETAR?",
+ o:["Programa Especial de Transporte y Almacenamiento de Residuos",
+    "Plan de Evacuación y Traslado de Accidentados en Riesgo",
+    "Permiso Escrito de Tránsito en Áreas Restringidas",
+    "Permiso Escrito para Trabajo de Alto Riesgo"],a:3},
+
+{id:61,t:"PETAR",tipo:"multiple",
+ q:"El PETAR debe ser autorizado por:",
+ o:["Solo el ejecutor de la tarea",
+    "El supervisor del trabajo y el jefe del área donde se realiza",
+    "Cualquier compañero disponible",
+    "Nadie, es un trámite opcional"],a:1},
+
+{id:62,t:"PETAR",tipo:"multiple",
+ q:"¿Para cuál de las siguientes tareas se requiere PETAR obligatoriamente?",
+ o:["Redactar un informe en oficina",
+    "Limpiar un escritorio",
+    "Trabajo en altura a más de 1.8 m, en espacio confinado o en caliente",
+    "Registrar la asistencia"],a:2},
+
+{id:63,t:"PETAR",tipo:"multiple",
+ q:"Si el PETAR vence durante la ejecución del trabajo, se debe:",
+ o:["Continuar hasta terminar la tarea",
+    "Paralizar el trabajo, renovar el PETAR y solo entonces continuar",
+    "Pedir permiso verbal al supervisor y seguir",
+    "Ignorarlo si queda poco trabajo"],a:1},
+
+{id:64,t:"PETAR",tipo:"vf",
+ q:"Evalúa si cada afirmación sobre el PETAR es VERDADERA o FALSA:",
+ stmts:[
+   {s:"Un PETAR firmado ayer sigue siendo válido hoy para el mismo trabajo.",correcto:false},
+   {s:"El PETAR debe especificar las medidas de control, el EPP requerido y los responsables del trabajo.",correcto:true}
+ ]},
+
+/* ---------- TRABAJOS DE ALTO RIESGO ---------- */
+{id:70,t:"Trabajos de alto riesgo",tipo:"multiple",
+ q:"Para un trabajo en altura se debe contar obligatoriamente con:",
+ o:["PETAR y arnés de cuerpo completo con línea de anclaje conectada a punto seguro",
+    "Solo cinta de señalización","Ninguna medida si dura poco","Solo un cinturón de cuero"],a:0},
+
+{id:71,t:"Trabajos de alto riesgo",tipo:"multiple",
+ q:"El bloqueo y etiquetado (LOTO) se aplica para:",
+ o:["Decorar el taller",
+    "Asegurar la energía cero de un equipo antes de repararlo o darle mantenimiento",
+    "Encender más rápido la maquinaria","Guardar herramientas"],a:1},
+
+{id:72,t:"Trabajos de alto riesgo",tipo:"multiple",
+ q:"Antes de ingresar a un espacio confinado se debe:",
+ o:["Encender fuego para iluminar",
+    "Contar con PETAR, medir la atmósfera (O₂, gases tóxicos) y tener vigía en el exterior",
+    "Ingresar solo y sin comunicación","Ingresar rápido sin equipos"],a:1},
+
+{id:73,t:"Trabajos de alto riesgo",tipo:"multiple",
+ q:"En trabajos en caliente (soldadura, corte con llama) es obligatorio:",
+ o:["Almacenar combustible junto a la zona de corte",
+    "Contar con PETAR, extintor cercano y vigía de fuego",
+    "Usar ropa sintética suelta","Trabajar sin extintor"],a:1},
+
+{id:74,t:"Trabajos de alto riesgo",tipo:"multiple",
+ q:"Si detectas un peligro que no puedes controlar en tu tarea, debes:",
+ o:["Continuar y avisar al terminar el turno","Taparlo con cinta y seguir",
+    "Esperar a que otro se accidente",
+    "Paralizar el trabajo y reportarlo de inmediato a tu supervisor"],a:3},
+
+{id:75,t:"Trabajos de alto riesgo",tipo:"multiple",
+ q:"Durante un izaje de carga está prohibido:",
+ o:["Permanecer o pasar debajo de la carga suspendida",
+    "Inspeccionar los accesorios de izaje antes del izaje",
+    "Usar señalero capacitado","Delimitar el área de trabajo"],a:0},
+
+/* ---------- EPP ---------- */
+{id:80,t:"EPP",tipo:"multiple",
+ q:"El equipo básico del trabajador minero incluye:",
+ o:["Solo gorra","Solo guantes de tela",
+    "Casco con carrilera, lentes, protector auditivo, guantes, botas de seguridad y ropa reflectiva",
+    "Sandalias y polo"],a:2},
+
+{id:81,t:"EPP",tipo:"multiple",
+ q:"El autorescatador proporciona:",
+ o:["Comunicación por radio",
+    "Aire respirable ante una emergencia con humo o gases para escapar de la labor",
+    "Agua potable","Protección contra ruido"],a:1},
+
+{id:82,t:"EPP",tipo:"multiple",
+ q:"Si tu EPP está deteriorado o defectuoso debes:",
+ o:["Prestárselo a un compañero","Reportarlo y solicitar su reemplazo de inmediato",
+    "Seguir usándolo hasta que falle","Repararlo con cinta adhesiva"],a:1},
+
+{id:83,t:"EPP",tipo:"multiple",
+ q:"El protector auditivo es obligatorio cuando el ruido supera:",
+ o:["50 dB(A)","10 dB(A)","30 dB(A)","85 dB(A) en una jornada de 8 horas"],a:3},
+
+{id:84,t:"EPP",tipo:"multiple",
+ q:"Quien debe proporcionar el EPP al trabajador es:",
+ o:["El compañero de mayor edad",
+    "El empleador o titular, sin costo para el trabajador",
+    "El propio trabajador con su dinero","El vigilante de seguridad"],a:1},
+
+/* ---------- HIGIENE OCUPACIONAL ---------- */
+{id:90,t:"Higiene ocupacional",tipo:"multiple",
+ q:"El nivel máximo de ruido permitido para una jornada de 8 horas según el D.S. 024-2016-EM es:",
+ o:["85 dB(A)","100 dB(A)","150 dB(A)","120 dB(A)"],a:0},
+
+{id:91,t:"Higiene ocupacional",tipo:"multiple",
+ q:"El contenido mínimo de oxígeno en el aire de una labor minera es:",
+ o:["10 %","2 %","19.5 %","5 %"],a:2},
+
+{id:92,t:"Higiene ocupacional",tipo:"multiple",
+ q:"La exposición prolongada al polvo de sílice cristalino puede causar:",
+ o:["Conjuntivitis alérgica","Silicosis","Insolación","Fractura ósea"],a:1},
+
+{id:93,t:"Higiene ocupacional",tipo:"multiple",
+ q:"El límite de exposición (TWA) del monóxido de carbono (CO) según el Anexo 15 es:",
+ o:["0.25 ppm","250 ppm","2500 ppm","25 ppm"],a:3},
+
+/* ---------- CÓDIGO DE COLORES ---------- */
+{id:100,t:"Código de colores",tipo:"multiple",
+ q:"En seguridad, el color rojo indica:",
+ o:["Información de salida","Advertencia","Obligación","Prohibición y equipos contra incendio"],a:3},
+
+{id:101,t:"Código de colores",tipo:"multiple",
+ q:"En seguridad, el color azul indica:",
+ o:["Obligación o instrucción (uso obligatorio de EPP)","Salida de emergencia","Prohibición","Peligro eléctrico"],a:0},
+
+{id:102,t:"Código de colores",tipo:"multiple",
+ q:"En seguridad, el color amarillo indica:",
+ o:["Obligación","Advertencia o zonas de peligro","Prohibición","Condición segura"],a:1},
+
+{id:103,t:"Código de colores",tipo:"relacionar",
+ q:"Relaciona cada color de seguridad con su significado según la NTP 399.010-1:",
+ pares:[
+   {izq:"🔴 Rojo",der:"Prohibición / Equipos contra incendio"},
+   {izq:"🔵 Azul",der:"Obligación / Instrucción"},
+   {izq:"🟡 Amarillo",der:"Advertencia / Peligro"},
+   {izq:"🟢 Verde",der:"Condición segura / Emergencia"}
+ ]},
+
+/* ---------- PRIMEROS AUXILIOS ---------- */
+{id:110,t:"Primeros auxilios",tipo:"multiple",
+ q:"En la RCP en adultos, la relación correcta es de:",
+ o:["5 compresiones y 30 ventilaciones","10 compresiones y 10 ventilaciones",
+    "30 compresiones y 2 ventilaciones","2 compresiones y 30 ventilaciones"],a:2},
+
+{id:111,t:"Primeros auxilios",tipo:"multiple",
+ q:"Lo primero que se debe hacer ante un accidentado es:",
+ o:["Verificar que la escena sea segura antes de auxiliar","Darle agua",
+    "Tomarle fotos","Moverlo de inmediato sin evaluar"],a:0},
+
+{id:112,t:"Primeros auxilios",tipo:"multiple",
+ q:"Ante salpicadura de sustancia química en los ojos se debe:",
+ o:["Lavarlos con abundante agua en el lavajos durante al menos 15 minutos",
+    "Frotarlos con la mano","Aplicar pasta dental","Cerrar los ojos y esperar"],a:0},
+
+/* ---------- PLAN DE EMERGENCIAS ---------- */
+{id:120,t:"Plan de emergencias",tipo:"multiple",
+ q:"Las estaciones de refugio minero se ubican a una distancia no mayor de:",
+ o:["10 km","2 km","500 m de los frentes de trabajo","5 km"],a:2},
+
+{id:121,t:"Plan de emergencias",tipo:"multiple",
+ q:"Un refugio minero debe tener reserva de alimentos y agua para:",
+ o:["1 comida","No requiere reservas","4 horas","Un mínimo de 3 días según su aforo"],a:3},
+
+{id:122,t:"Plan de emergencias",tipo:"multiple",
+ q:"Ante la alarma de emergencia, el trabajador debe:",
+ o:["Mantener la calma, seguir las rutas señalizadas y dirigirse al punto de reunión o refugio",
+    "Correr en cualquier dirección","Volver por sus pertenencias","Ignorar la alarma"],a:0},
+
+/* ---------- NOTIFICACIÓN ---------- */
+{id:130,t:"Notificación y estadísticas",tipo:"multiple",
+ q:"El accidente mortal y el incidente peligroso se notifican a la autoridad en un plazo de:",
+ o:["24 horas","30 días","1 año","6 meses"],a:0},
+
+{id:131,t:"Notificación y estadísticas",tipo:"multiple",
+ q:"Los accidentes de trabajo se clasifican en:",
+ o:["Solo mortal","Ninguna clasificación","Leve, incapacitante y mortal","Solo leve"],a:2},
+
+{id:132,t:"Notificación y estadísticas",tipo:"multiple",
+ q:"En la investigación de un accidente, las causas se analizan como:",
+ o:["Causas inmediatas (actos y condiciones subestándares), causas básicas (factores personales y de trabajo) y falta de gestión",
+    "Solo el clima","Solo mala suerte","Solo el error del accidentado"],a:0}
 ];
 
-/* ============ PREGUNTAS ESPECIALES OBLIGATORIAS (4) ============ */
-// Tipo "iperc" = tabla IPERC continuo
-// Tipo "open"  = respuesta corta evaluada por palabras clave
-const ESPECIALES = [
-  {
-    id:"E1", tipo:"iperc",
-    t:"IPERC Continuo",
-    q:"Completa la tabla de IPERC Continuo según el D.S. 024-2016-EM. Identifica el peligro, el riesgo, la severidad y la probabilidad para la actividad indicada.",
-    actividad:"Trabajo en altura (más de 1.8 m) sin arnés",
-    peligroEsperado:["caída","altura","precipitación"],
-    riesgoEsperado:["golpe","fractura","lesión","muerte","traumatismo"],
-    severidadCorrecta:4,
-    probabilidadCorrecta:4
-  },
-  {
-    id:"E2", tipo:"open",
-    t:"Anexo 04 – Inducción básica",
-    q:"¿Cuáles son los temas principales que debe cubrir la inducción y orientación básica del Anexo 04 del D.S. 024-2016-EM? Menciona al menos 3.",
-    hint:"Piensa en: política SSO, IPERC, EPP, emergencias, derechos y obligaciones...",
-    keywords:[["política","politica"],["iperc","peligro","riesgo"],["epp","equipo de protección","protección personal"],["emergencia","evacuación","evacuacion"],["derecho","obligación","obligacion"],["accidente","incidente"],["reglamento","risso"]]
-  },
-  {
-    id:"E3", tipo:"open",
-    t:"Anexo 04 – Duración y vigencia",
-    q:"Según el Anexo 04 del D.S. 024-2016-EM, ¿cuánto tiempo dura como mínimo la inducción básica y cuánto tiempo tiene de vigencia? Explica brevemente.",
-    hint:"Recuerda: duración mínima en horas y vigencia en meses/años...",
-    keywords:[["8 hora","ocho hora"],["1 año","un año","12 mes","doce mes"]]
-  },
-  {
-    id:"E4", tipo:"open",
-    t:"Derechos del trabajador – Peligro inminente",
-    q:"Como trabajador minero, si identificas un peligro inminente que no puedes controlar, ¿qué debes hacer según el D.S. 024-2016-EM? Describe los pasos.",
-    hint:"Piensa en: paralizar, reportar, no represalias...",
-    keywords:[["paraliz","detener","parar","suspender"],["report","avisa","comunic","supervisor","jefe"],["no represalia","sin represalia","derecho"]]
-  }
+/* ======================================================
+   PREGUNTAS ESPECIALES POR ÁREA (adaptadas)
+====================================================== */
+const ESPECIALES_POR_AREA = {
+  mina:[
+    {id:"EM1",t:"IPERC Continuo – Mina",actividad:"Perforación en frente de minado subterráneo",
+     peligroEsperado:["polvo","sílice","roca","desprendimiento","caída"],
+     riesgoEsperado:["silicosis","neumoconiosis","golpe","fractura","lesión","muerte"],
+     severidadCorrecta:4,probabilidadCorrecta:3}
+  ],
+  cocina:[
+    {id:"EC1",t:"IPERC Continuo – Cocina",actividad:"Manipulación de aceite caliente en cocina industrial",
+     peligroEsperado:["quemadura","aceite","calor","fuego","salpicadura"],
+     riesgoEsperado:["quemadura","lesión","incendio","daño"],
+     severidadCorrecta:3,probabilidadCorrecta:3}
+  ],
+  construccion:[
+    {id:"ECC1",t:"IPERC Continuo – Construcción civil",actividad:"Trabajo en andamio a 4 metros de altura",
+     peligroEsperado:["caída","altura","andamio","desequilibrio"],
+     riesgoEsperado:["fractura","muerte","lesión","traumatismo","golpe"],
+     severidadCorrecta:4,probabilidadCorrecta:3}
+  ],
+  planta:[
+    {id:"EP1",t:"IPERC Continuo – Planta",actividad:"Mantenimiento de faja transportadora en operación",
+     peligroEsperado:["atrapamiento","faja","parte móvil","enganche"],
+     riesgoEsperado:["amputación","fractura","muerte","lesión","atrapamiento"],
+     severidadCorrecta:4,probabilidadCorrecta:3}
+  ],
+  mantenimiento:[
+    {id:"EMT1",t:"IPERC Continuo – Mantenimiento",actividad:"Cambio de componente eléctrico sin bloqueo LOTO",
+     peligroEsperado:["electrocución","energía","corriente","arco eléctrico"],
+     riesgoEsperado:["electrocución","muerte","quemadura","paro cardíaco","lesión"],
+     severidadCorrecta:4,probabilidadCorrecta:4}
+  ],
+  almacen:[
+    {id:"EAL1",t:"IPERC Continuo – Almacén",actividad:"Apilamiento manual de sacos de 50 kg",
+     peligroEsperado:["sobreesfuerzo","carga","peso","postura","caída de carga"],
+     riesgoEsperado:["lumbalgia","lesión","fractura","aplastamiento","daño musculoesquelético"],
+     severidadCorrecta:3,probabilidadCorrecta:3}
+  ],
+  general:[
+    {id:"EG1",t:"IPERC Continuo – General",actividad:"Trabajo en altura (más de 1.8 m) sin arnés",
+     peligroEsperado:["caída","altura","precipitación"],
+     riesgoEsperado:["fractura","muerte","lesión","traumatismo","golpe"],
+     severidadCorrecta:4,probabilidadCorrecta:4}
+  ]
+};
+
+/* ======================================================
+   PREGUNTAS ABIERTAS OBLIGATORIAS (3 fijas)
+====================================================== */
+const ABIERTAS_FIJAS = [
+  {id:"A1",tipo:"open",t:"Anexo 04 – Temas de inducción",
+   q:"¿Cuáles son los temas principales que debe cubrir la inducción y orientación básica del Anexo 04 del D.S. 024-2016-EM? Menciona al menos 3.",
+   hint:"Piensa en: política SSO, IPERC, EPP, emergencias, derechos y obligaciones...",
+   keywords:[["política","politica"],["iperc","peligro","riesgo"],["epp","equipo de protección","proteccion personal"],["emergencia","evacuación","evacuacion"],["derecho","obligación","obligacion"],["accidente","incidente"],["reglamento","risso"]]},
+  {id:"A2",tipo:"open",t:"Anexo 04 – Duración y vigencia",
+   q:"Según el Anexo 04 del D.S. 024-2016-EM, ¿cuánto tiempo dura como mínimo la inducción básica y cuánto tiempo tiene de vigencia?",
+   hint:"Duración mínima: horas. Vigencia: meses/años para la misma unidad minera.",
+   keywords:[["8 hora","ocho hora"],["1 año","un año","12 mes","doce mes"]]},
+  {id:"A3",tipo:"open",t:"Derechos del trabajador – Peligro inminente",
+   q:"Como trabajador minero, si identificas un peligro inminente que no puedes controlar, ¿qué debes hacer según el D.S. 024-2016-EM? Describe los pasos.",
+   hint:"Paralizar, reportar al supervisor, sin represalias...",
+   keywords:[["paraliz","detener","parar","suspender"],["report","avisa","comunic","supervisor","jefe"],["no represalia","sin represalia","derecho"]]}
 ];
 
-/* ============ UTILIDADES ============ */
-const $ = id => document.getElementById(id);
-function randInt(n){ const a=new Uint32Array(1); crypto.getRandomValues(a); return a[0]%n; }
-function shuffle(arr){ const a=arr.slice(); for(let i=a.length-1;i>0;i--){ const j=randInt(i+1); [a[i],a[j]]=[a[j],a[i]]; } return a; }
-function esc(s){ return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
-function lsGet(k,d){ try{ const v=localStorage.getItem(k); return v?JSON.parse(v):d; }catch(e){ return d; } }
-function lsSet(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)); }catch(e){} }
-function lsDel(k){ try{ localStorage.removeItem(k); }catch(e){} }
+/* ======================================================
+   UTILIDADES
+====================================================== */
+const $=id=>document.getElementById(id);
+function randInt(n){const a=new Uint32Array(1);crypto.getRandomValues(a);return a[0]%n;}
+function shuffle(arr){const a=arr.slice();for(let i=a.length-1;i>0;i--){const j=randInt(i+1);[a[i],a[j]]=[a[j],a[i]];}return a;}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function lsGet(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return d;}}
+function lsSet(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+function norm(s){return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");}
 
-/* ============ EVALUACIÓN PREGUNTAS ABIERTAS ============ */
-function evalOpen(respuesta, keywords){
-  const r = respuesta.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
-  let hits = 0;
-  for(const grupo of keywords){
-    if(grupo.some(kw => r.includes(kw.normalize("NFD").replace(/[\u0300-\u036f]/g,"")))) hits++;
-  }
-  // Correcto si menciona al menos la mitad de los grupos de palabras clave
-  return hits >= Math.ceil(keywords.length / 2);
+function evalOpen(resp,keywords){
+  const r=norm(resp);
+  let hits=0;
+  for(const g of keywords){if(g.some(kw=>r.includes(norm(kw))))hits++;}
+  return hits>=Math.ceil(keywords.length/2);
 }
 
-/* ============ EVALUACIÓN IPERC ============ */
-function evalIPERC(peligro, riesgo, severidad, probabilidad, esp){
-  let ok = true;
-  const p = peligro.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
-  const r = riesgo.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
-  const pOk = esp.peligroEsperado.some(kw => p.includes(kw.normalize("NFD").replace(/[\u0300-\u036f]/g,"")));
-  const rOk = esp.riesgoEsperado.some(kw => r.includes(kw.normalize("NFD").replace(/[\u0300-\u036f]/g,"")));
-  const sOk = parseInt(severidad) >= 3;
-  const prOk = parseInt(probabilidad) >= 3;
-  return {pOk, rOk, sOk, prOk, correcto: pOk && rOk && sOk && prOk};
+function evalIPERC(peligro,riesgo,sev,prob,esp){
+  const p=norm(peligro),r=norm(riesgo);
+  const pOk=esp.peligroEsperado.some(kw=>p.includes(norm(kw)));
+  const rOk=esp.riesgoEsperado.some(kw=>r.includes(norm(kw)));
+  const sOk=parseInt(sev)>=esp.severidadCorrecta-1;
+  const prOk=parseInt(prob)>=esp.probabilidadCorrecta-1;
+  return{pOk,rOk,sOk,prOk,correcto:pOk&&rOk&&sOk&&prOk};
 }
 
-function nivelRiesgo(s, p){
-  const v = s * p;
-  if(v <= 4) return {txt:"BAJO", cls:"nivel-bajo"};
-  if(v <= 8) return {txt:"MEDIO", cls:"nivel-medio"};
-  if(v <= 12) return {txt:"ALTO", cls:"nivel-alto"};
-  return {txt:"CRÍTICO", cls:"nivel-critico"};
+function nivelRiesgo(s,p){
+  const v=s*p;
+  if(v<=4)return{txt:"BAJO",cls:"nivel-bajo"};
+  if(v<=8)return{txt:"MEDIO",cls:"nivel-medio"};
+  if(v<=12)return{txt:"ALTO",cls:"nivel-alto"};
+  return{txt:"CRÍTICO",cls:"nivel-critico"};
 }
 
-/* ============ ESTADO ============ */
-let examen=[], idx=0, colab={}, intentoActual=1;
+const TIPO_LABEL={
+  multiple:{txt:"Opción múltiple",cls:"tipo-multiple"},
+  vf:{txt:"Verdadero / Falso",cls:"tipo-vf"},
+  relacionar:{txt:"Relacionar",cls:"tipo-relacionar"},
+  iperc:{txt:"IPERC Continuo",cls:"tipo-iperc"},
+  open:{txt:"Respuesta corta",cls:"tipo-open"}
+};
 
-/* ============ INICIO ============ */
-$("b-elegir").onclick = async ()=>{
+/* ======================================================
+   ESTADO
+====================================================== */
+let examen=[],idx=0,colab={},intentoActual=1,areaDetectada="general";
+
+/* ======================================================
+   INICIO
+====================================================== */
+$("b-elegir").onclick=async()=>{
   const g=id=>$(id).value.trim();
-  const nombre=g("nombre"), dni=g("dni"), empresa=g("empresa"), cargo=g("cargo"), area=g("area");
+  const nombre=g("nombre"),dni=g("dni"),empresa=g("empresa"),cargo=g("cargo"),area=g("area");
   const e=$("e-inicio");
-  if(nombre.length<5){ e.textContent="Escribe tus apellidos y nombres completos."; return; }
-  if(!/^\d{8}$/.test(dni)){ e.textContent="El DNI debe tener 8 números."; return; }
-  if(empresa.length<2){ e.textContent="Escribe el nombre de tu empresa."; return; }
-  if(cargo.length<2){ e.textContent="Escribe tu ocupación."; return; }
-  if(area.length<2){ e.textContent="Escribe tu área de trabajo."; return; }
+  if(nombre.length<5){e.textContent="Escribe tus apellidos y nombres completos.";return;}
+  if(!/^\d{8}$/.test(dni)){e.textContent="El DNI debe tener 8 números.";return;}
+  if(empresa.length<2){e.textContent="Escribe el nombre de tu empresa.";return;}
+  if(cargo.length<2){e.textContent="Escribe tu ocupación.";return;}
+  if(area.length<2){e.textContent="Escribe tu área de trabajo.";return;}
   e.textContent="";
   colab={nombre,dni,empresa,cargo,area};
+  areaDetectada=detectarArea(area+" "+cargo);
 
-  // Determinar intento
-  const historial = lsGet("anexo04_hist_"+dni, []);
-  intentoActual = historial.length + 1;
+  const historial=lsGet("anexo04_hist_"+dni,[]);
+  intentoActual=historial.length+1;
 
-  const btn=$("b-elegir"); btn.disabled=true; btn.textContent="Eligiendo preguntas…";
+  const btn=$("b-elegir");btn.disabled=true;btn.textContent="Preparando examen…";
 
-  const ids = BANCO_LOCAL.map(p=>p.id);
-  // Evitar repetir preguntas del intento anterior
-  const prevIds = historial.length > 0 ? historial[historial.length-1].ids : [];
-  let pool = ids.filter(id => !prevIds.includes(id));
-  if(pool.length < CONFIG.TOTAL_OPCION) pool = ids; // reiniciar si no hay suficientes
+  // Separar preguntas por tipo para garantizar variedad
+  const multiples=BANCO.filter(p=>p.tipo==="multiple");
+  const vfs=BANCO.filter(p=>p.tipo==="vf");
+  const relacionar=BANCO.filter(p=>p.tipo==="relacionar");
 
-  const elegidas = shuffle(pool).slice(0, CONFIG.TOTAL_OPCION);
-  const porId = Object.fromEntries(BANCO_LOCAL.map(p=>[p.id,p]));
+  // IDs del intento anterior para no repetir
+  const prevIds=historial.length>0?historial[historial.length-1].ids:[];
 
-  // 16 preguntas de opción múltiple
-  const pregMultiple = elegidas.map(id=>{
-    const p = porId[id];
-    const ord = shuffle([0,1,2,3]);
-    return {id:p.id, tipo:"multiple", t:p.t, q:p.q, o:ord.map(i=>p.o[i]), a:ord.indexOf(p.a), r:null, resp:null};
+  function elegirSin(pool,n){
+    let disponibles=pool.filter(p=>!prevIds.includes(p.id));
+    if(disponibles.length<n)disponibles=pool;
+    return shuffle(disponibles).slice(0,n);
+  }
+
+  // Distribución de las 16 preguntas:
+  // 10 opción múltiple + 3 V/F + 2 relacionar + 1 comodín múltiple = 16
+  const selMultiple=elegirSin(multiples,11);
+  const selVF=elegirSin(vfs,3);
+  const selRel=elegirSin(relacionar,2);
+  const selBase=[...selMultiple,...selVF,...selRel];
+
+  // Construir preguntas de opción múltiple con opciones mezcladas
+  const pregBase=selBase.map(p=>{
+    if(p.tipo==="multiple"){
+      const ord=shuffle([0,1,2,3]);
+      return{...p,o:ord.map(i=>p.o[i]),a:ord.indexOf(p.a),r:null,correcto:null};
+    }
+    if(p.tipo==="vf"){
+      return{...p,respVF:p.stmts.map(()=>null),r:null,correcto:null};
+    }
+    if(p.tipo==="relacionar"){
+      const derechas=shuffle(p.pares.map(x=>x.der));
+      return{...p,derechasShuf:derechas,selecciones:p.pares.map(()=>null),r:null,correcto:null};
+    }
+    return{...p,r:null,correcto:null};
   });
 
-  // 4 preguntas especiales (siempre las mismas 4, en posiciones aleatorias dentro del examen)
-  const pregEsp = ESPECIALES.map(e=>({...e, r:null, resp:null, iperData:null}));
+  // IPERC continuo adaptado al área
+  const ipercs=ESPECIALES_POR_AREA[areaDetectada]||ESPECIALES_POR_AREA.general;
+  const ipercEsp={...ipercs[0],tipo:"iperc",r:null,correcto:null,iperData:null,iperEval:null};
 
-  // Mezclar: insertar las 4 especiales en posiciones aleatorias
-  examen = shuffle([...pregMultiple, ...pregEsp]);
+  // 3 preguntas abiertas fijas
+  const abiertas=ABIERTAS_FIJAS.map(a=>({...a,r:null,correcto:null,resp:""}));
+
+  // Mezclar todo: 16 base + 1 iperc + 3 abiertas = 20
+  examen=shuffle([...pregBase,ipercEsp,...abiertas]);
 
   btn.classList.add("hidden");
   ["nombre","dni","empresa","cargo","area"].forEach(id=>$(id).disabled=true);
-  $("readyTxt").textContent=`Listo. Se eligieron ${CONFIG.TOTAL_OPCION} preguntas aleatorias + 4 preguntas especiales para ti (Intento N.° ${intentoActual}).`;
+  const areaTxt=areaDetectada==="general"?"área general":areaDetectada.charAt(0).toUpperCase()+areaDetectada.slice(1);
+  $("readyTxt").textContent=`✅ Listo. 20 preguntas preparadas para ti (${areaTxt}) — Intento N.° ${intentoActual}.`;
   $("ready").classList.remove("hidden");
 };
 
-$("b-empezar").onclick = ()=>{
+$("b-empezar").onclick=()=>{
   idx=0;
   $("s-inicio").classList.add("hidden");
   $("s-examen").classList.remove("hidden");
   pintar();
 };
 
-/* ============ EXAMEN ============ */
+/* ======================================================
+   PINTAR PREGUNTA
+====================================================== */
 function pintar(){
-  const p = examen[idx];
-  $("pTxt").textContent = `Pregunta ${idx+1} de ${examen.length}`;
-  $("pBar").style.width = (idx/examen.length*100)+"%";
-  $("qTema").textContent = p.t;
-  $("qTxt").textContent = p.q;
-  $("intentoBadge").textContent = `Intento N.° ${intentoActual}`;
-  $("b-sig").disabled = true;
-  $("b-sig").textContent = idx===examen.length-1 ? "Terminar examen" : "Siguiente";
+  const p=examen[idx];
+  $("pTxt").textContent=`Pregunta ${idx+1} de ${examen.length}`;
+  $("pBar").style.width=(idx/examen.length*100)+"%";
+  $("qTema").textContent=p.t||"";
+  $("qTxt").textContent=p.tipo==="iperc"?p.q:p.q;
+  $("intentoBadge").textContent=`Intento N.° ${intentoActual}`;
+  const tl=TIPO_LABEL[p.tipo]||TIPO_LABEL.multiple;
+  $("qTipoBadge").textContent=tl.txt;
+  $("qTipoBadge").className="tipo-badge "+tl.cls;
+  $("b-sig").disabled=true;
+  $("b-sig").textContent=idx===examen.length-1?"Terminar examen":"Siguiente";
 
-  if(p.tipo === "multiple"){
-    $("qOpts").innerHTML = p.o.map((t,i)=>
-      `<label class="opt"><input type="radio" name="op" value="${i}"><span class="k">${"ABCD"[i]}</span><span>${esc(t)}</span></label>`
-    ).join("");
-    document.querySelectorAll("#qOpts input").forEach(inp=>inp.onchange=()=>{
-      p.r = +inp.value;
-      p.resp = p.o[p.r];
-      document.querySelectorAll(".opt").forEach(l=>l.classList.remove("sel"));
-      inp.closest(".opt").classList.add("sel");
-      $("b-sig").disabled = false;
-    });
-  } else if(p.tipo === "iperc"){
-    $("qOpts").innerHTML = `
-      <div class="open-q">
-        <p style="margin:0 0 8px;font-weight:600;color:var(--muted)">📋 Actividad: <span style="color:var(--ink)">${esc(p.actividad)}</span></p>
-        <div class="iperc-wrap">
-          <table class="iperc-tbl">
-            <thead>
-              <tr>
-                <th>Actividad</th>
-                <th>Peligro identificado</th>
-                <th>Riesgo asociado</th>
-                <th>Severidad<br><small>(1=Leve · 4=Fatal)</small></th>
-                <th>Probabilidad<br><small>(1=Rara · 4=Casi segura)</small></th>
-                <th>Nivel de Riesgo</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td style="font-weight:600;min-width:120px">${esc(p.actividad)}</td>
-                <td><input type="text" id="iperc_peligro" placeholder="Ej: Caída de altura"></td>
-                <td><input type="text" id="iperc_riesgo" placeholder="Ej: Fractura, muerte"></td>
-                <td>
-                  <select id="iperc_sev">
-                    <option value="">--</option>
-                    <option value="1">1 – Leve</option>
-                    <option value="2">2 – Moderado</option>
-                    <option value="3">3 – Grave</option>
-                    <option value="4">4 – Fatal</option>
-                  </select>
-                </td>
-                <td>
-                  <select id="iperc_prob">
-                    <option value="">--</option>
-                    <option value="1">1 – Rara vez</option>
-                    <option value="2">2 – Posible</option>
-                    <option value="3">3 – Probable</option>
-                    <option value="4">4 – Casi segura</option>
-                  </select>
-                </td>
-                <td><div class="nivel" id="iperc_nivel">—</div></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="leyenda-iperc">
-          <b>Nivel de Riesgo = Severidad × Probabilidad</b><br>
-          🟢 1–4: Bajo &nbsp;|&nbsp; 🟡 5–8: Medio &nbsp;|&nbsp; 🔴 9–12: Alto &nbsp;|&nbsp; ⛔ 13–16: Crítico
-        </div>
-      </div>`;
-
-    function actualizarNivel(){
-      const s = parseInt($("iperc_sev").value)||0;
-      const pr = parseInt($("iperc_prob").value)||0;
-      const niv = $("iperc_nivel");
-      if(s && pr){
-        const n = nivelRiesgo(s, pr);
-        niv.textContent = `${s*pr} – ${n.txt}`;
-        niv.className = "nivel " + n.cls;
-      } else {
-        niv.textContent = "—";
-        niv.className = "nivel";
-      }
-      const peligro = $("iperc_peligro").value.trim();
-      const riesgo = $("iperc_riesgo").value.trim();
-      if(peligro.length>2 && riesgo.length>2 && s && pr){
-        p.iperData = {peligro, riesgo, severidad:s, probabilidad:pr};
-        p.r = 1; // marcado como respondido
-        $("b-sig").disabled = false;
-      } else {
-        p.r = null;
-        $("b-sig").disabled = true;
-      }
-    }
-    ["iperc_peligro","iperc_riesgo","iperc_sev","iperc_prob"].forEach(id=>{
-      $(id).addEventListener("input", actualizarNivel);
-      $(id).addEventListener("change", actualizarNivel);
-    });
-
-  } else if(p.tipo === "open"){
-    $("qOpts").innerHTML = `
-      <div class="open-q">
-        <textarea id="open_resp" placeholder="Escribe tu respuesta aquí..." rows="4"></textarea>
-        <p class="hint">💡 ${esc(p.hint)}</p>
-      </div>`;
-    $("open_resp").addEventListener("input", ()=>{
-      const val = $("open_resp").value.trim();
-      p.resp = val;
-      p.r = val.length > 10 ? 1 : null;
-      $("b-sig").disabled = val.length <= 10;
-    });
-  }
+  if(p.tipo==="multiple") pintarMultiple(p);
+  else if(p.tipo==="vf") pintarVF(p);
+  else if(p.tipo==="relacionar") pintarRelacionar(p);
+  else if(p.tipo==="iperc") pintarIPERC(p);
+  else if(p.tipo==="open") pintarOpen(p);
 
   window.scrollTo({top:0});
 }
 
-$("b-sig").onclick = ()=>{
-  // Guardar respuesta open/iperc antes de avanzar
-  const p = examen[idx];
-  if(p.tipo === "open" && $("open_resp")){
-    p.resp = $("open_resp").value.trim();
+function pintarMultiple(p){
+  $("qOpts").innerHTML=p.o.map((t,i)=>
+    `<label class="opt${p.r===i?' sel':''}">
+      <input type="radio" name="op" value="${i}"${p.r===i?' checked':''}>
+      <span class="k">${"ABCD"[i]}</span><span>${esc(t)}</span>
+    </label>`).join("");
+  document.querySelectorAll("#qOpts input").forEach(inp=>inp.onchange=()=>{
+    p.r=+inp.value;
+    document.querySelectorAll(".opt").forEach(l=>l.classList.remove("sel"));
+    inp.closest(".opt").classList.add("sel");
+    $("b-sig").disabled=false;
+  });
+}
+
+function pintarVF(p){
+  $("qOpts").innerHTML=p.stmts.map((st,i)=>`
+    <div class="vf-stmt">
+      <p>${i+1}. ${esc(st.s)}</p>
+      <div class="vf-btns">
+        <button class="vf-btn${p.respVF[i]===true?' sel-v':''}" data-idx="${i}" data-val="true">✅ VERDADERO</button>
+        <button class="vf-btn${p.respVF[i]===false?' sel-f':''}" data-idx="${i}" data-val="false">❌ FALSO</button>
+      </div>
+    </div>`).join("");
+  $("qOpts").querySelectorAll(".vf-btn").forEach(btn=>{
+    btn.onclick=()=>{
+      const i=+btn.dataset.idx;
+      const v=btn.dataset.val==="true";
+      p.respVF[i]=v;
+      // Actualizar visual
+      const stmtDiv=btn.closest(".vf-stmt");
+      stmtDiv.querySelectorAll(".vf-btn").forEach(b=>b.className="vf-btn");
+      btn.className="vf-btn "+(v?"sel-v":"sel-f");
+      // Habilitar siguiente si todos respondidos
+      if(p.respVF.every(x=>x!==null)){p.r=1;$("b-sig").disabled=false;}
+    };
+  });
+}
+
+function pintarRelacionar(p){
+  $("qOpts").innerHTML=`
+    <div class="rel-wrap">
+      <div class="rel-col">
+        <h4>Concepto</h4>
+        ${p.pares.map((par,i)=>`
+          <div class="rel-item">
+            <b>${esc(par.izq)}</b>
+            <select class="rel-select" data-idx="${i}">
+              <option value="">-- Selecciona --</option>
+              ${p.derechasShuf.map(d=>`<option value="${esc(d)}"${p.selecciones[i]===d?' selected':''}>${esc(d)}</option>`).join("")}
+            </select>
+          </div>`).join("")}
+      </div>
+      <div class="rel-col">
+        <h4>Descripción</h4>
+        ${p.derechasShuf.map(d=>`<div class="rel-item" style="background:#F8F9FA"><b>${esc(d)}</b></div>`).join("")}
+      </div>
+    </div>`;
+  $("qOpts").querySelectorAll(".rel-select").forEach(sel=>{
+    sel.onchange=()=>{
+      const i=+sel.dataset.idx;
+      p.selecciones[i]=sel.value||null;
+      if(p.selecciones.every(x=>x)){p.r=1;$("b-sig").disabled=false;}
+      else{p.r=null;$("b-sig").disabled=true;}
+    };
+  });
+}
+
+function pintarIPERC(p){
+  $("qOpts").innerHTML=`
+    <div class="open-q">
+      <p style="margin:0 0 8px;font-weight:600;color:var(--muted)">📋 Actividad: <b style="color:var(--ink)">${esc(p.actividad)}</b></p>
+      <div class="iperc-wrap">
+        <table class="iperc-tbl">
+          <thead><tr>
+            <th>Actividad</th><th>Peligro identificado</th><th>Riesgo asociado</th>
+            <th>Severidad<br><small>1=Leve · 4=Fatal</small></th>
+            <th>Probabilidad<br><small>1=Rara · 4=Casi segura</small></th>
+            <th>Nivel de Riesgo</th>
+          </tr></thead>
+          <tbody><tr>
+            <td style="font-weight:600;min-width:110px;font-size:13px">${esc(p.actividad)}</td>
+            <td><input type="text" id="ip_pel" placeholder="Describe el peligro..." value="${esc(p.iperData?p.iperData.peligro:'')}"></td>
+            <td><input type="text" id="ip_rie" placeholder="Describe el riesgo..." value="${esc(p.iperData?p.iperData.riesgo:'')}"></td>
+            <td><select id="ip_sev">
+              <option value="">--</option>
+              <option value="1"${p.iperData&&p.iperData.severidad==1?' selected':''}>1 – Leve</option>
+              <option value="2"${p.iperData&&p.iperData.severidad==2?' selected':''}>2 – Moderado</option>
+              <option value="3"${p.iperData&&p.iperData.severidad==3?' selected':''}>3 – Grave</option>
+              <option value="4"${p.iperData&&p.iperData.severidad==4?' selected':''}>4 – Fatal</option>
+            </select></td>
+            <td><select id="ip_pro">
+              <option value="">--</option>
+              <option value="1"${p.iperData&&p.iperData.probabilidad==1?' selected':''}>1 – Rara vez</option>
+              <option value="2"${p.iperData&&p.iperData.probabilidad==2?' selected':''}>2 – Posible</option>
+              <option value="3"${p.iperData&&p.iperData.probabilidad==3?' selected':''}>3 – Probable</option>
+              <option value="4"${p.iperData&&p.iperData.probabilidad==4?' selected':''}>4 – Casi segura</option>
+            </select></td>
+            <td><div class="nivel" id="ip_niv">—</div></td>
+          </tr></tbody>
+        </table>
+      </div>
+      <div class="leyenda-iperc">
+        <b>Nivel = Severidad × Probabilidad</b><br>
+        🟢 1–4 Bajo &nbsp;|&nbsp; 🟡 5–8 Medio &nbsp;|&nbsp; 🔴 9–12 Alto &nbsp;|&nbsp; ⛔ 13–16 Crítico
+      </div>
+    </div>`;
+
+  function actualizarIPERC(){
+    const s=parseInt($("ip_sev").value)||0;
+    const pr=parseInt($("ip_pro").value)||0;
+    const niv=$("ip_niv");
+    if(s&&pr){const n=nivelRiesgo(s,pr);niv.textContent=`${s*pr} – ${n.txt}`;niv.className="nivel "+n.cls;}
+    else{niv.textContent="—";niv.className="nivel";}
+    const pel=$("ip_pel").value.trim(),rie=$("ip_rie").value.trim();
+    if(pel.length>2&&rie.length>2&&s&&pr){
+      p.iperData={peligro:pel,riesgo:rie,severidad:s,probabilidad:pr};
+      p.r=1;$("b-sig").disabled=false;
+    }else{p.r=null;$("b-sig").disabled=true;}
   }
-  if(p.tipo === "iperc" && p.iperData){
-    // ya guardado en actualizarNivel
-  }
-  if(idx < examen.length-1){ idx++; pintar(); }
+  ["ip_pel","ip_rie","ip_sev","ip_pro"].forEach(id=>{
+    $(id).addEventListener("input",actualizarIPERC);
+    $(id).addEventListener("change",actualizarIPERC);
+  });
+  if(p.iperData) actualizarIPERC();
+}
+
+function pintarOpen(p){
+  $("qOpts").innerHTML=`
+    <div class="open-q">
+      <textarea id="open_resp" placeholder="Escribe tu respuesta aquí..." rows="4">${esc(p.resp||"")}</textarea>
+      <p class="hint">💡 ${esc(p.hint)}</p>
+    </div>`;
+  $("open_resp").addEventListener("input",()=>{
+    const val=$("open_resp").value.trim();
+    p.resp=val;p.r=val.length>10?1:null;
+    $("b-sig").disabled=val.length<=10;
+  });
+  if(p.resp&&p.resp.length>10)$("b-sig").disabled=false;
+}
+
+$("b-sig").onclick=()=>{
+  if(idx<examen.length-1){idx++;pintar();}
   else terminar();
 };
 
-/* ============ RESULTADO ============ */
+/* ======================================================
+   RESULTADO
+====================================================== */
 function terminar(){
-  // Evaluar preguntas especiales
   examen.forEach(p=>{
-    if(p.tipo === "open"){
-      p.correcto = evalOpen(p.resp||"", p.keywords);
-      p.r = p.correcto ? 1 : 0;
-    } else if(p.tipo === "iperc"){
+    if(p.tipo==="multiple"){
+      p.correcto=p.r===p.a;
+    } else if(p.tipo==="vf"){
+      p.correcto=p.stmts.every((st,i)=>p.respVF[i]===st.correcto);
+    } else if(p.tipo==="relacionar"){
+      p.correcto=p.pares.every((par,i)=>p.selecciones[i]===par.der);
+    } else if(p.tipo==="iperc"){
       if(p.iperData){
-        const ev = evalIPERC(p.iperData.peligro, p.iperData.riesgo, p.iperData.severidad, p.iperData.probabilidad, p);
-        p.correcto = ev.correcto;
-        p.iperEval = ev;
-        p.r = p.correcto ? 1 : 0;
-      } else {
-        p.correcto = false; p.r = 0;
-      }
-    } else {
-      p.correcto = (p.r === p.a);
+        p.iperEval=evalIPERC(p.iperData.peligro,p.iperData.riesgo,p.iperData.severidad,p.iperData.probabilidad,p);
+        p.correcto=p.iperEval.correcto;
+      } else p.correcto=false;
+    } else if(p.tipo==="open"){
+      p.correcto=evalOpen(p.resp||"",p.keywords);
     }
   });
 
-  const ok = examen.filter(p=>p.correcto).length;
-  const aprobado = ok >= CONFIG.NOTA_MINIMA;
-  const enObservacion = ok >= CONFIG.NOTA_OBSERVACION && ok < CONFIG.NOTA_MINIMA;
-  const fecha = new Date();
-  const fechaTxt = fecha.toLocaleString("es-PE",{dateStyle:"long",timeStyle:"short"});
+  const ok=examen.filter(p=>p.correcto).length;
+  const aprobado=ok>=CONFIG.NOTA_MINIMA;
+  const enObs=ok>=CONFIG.NOTA_OBSERVACION&&ok<CONFIG.NOTA_MINIMA;
+  const fecha=new Date();
+  const fechaTxt=fecha.toLocaleString("es-PE",{dateStyle:"long",timeStyle:"short"});
 
-  // Guardar historial
-  const historial = lsGet("anexo04_hist_"+colab.dni, []);
+  const historial=lsGet("anexo04_hist_"+colab.dni,[]);
   historial.push({
-    intento: intentoActual,
-    fecha: fechaTxt,
-    nota: ok,
-    aprobado,
-    ids: examen.filter(p=>p.tipo==="multiple").map(p=>p.id)
+    intento:intentoActual,fecha:fechaTxt,nota:ok,aprobado,
+    ids:examen.filter(p=>p.tipo==="multiple").map(p=>p.id)
   });
-  lsSet("anexo04_hist_"+colab.dni, historial);
+  lsSet("anexo04_hist_"+colab.dni,historial);
 
   $("s-examen").classList.add("hidden");
   $("s-result").classList.remove("hidden");
-  $("rNota").textContent = ok;
-  $("rIntentoBadge").textContent = `Intento N.° ${intentoActual}`;
+  $("rNota").textContent=ok;
+  $("rIntentoBadge").textContent=`Intento N.° ${intentoActual}`;
 
-  const st = $("rEstado");
-  const msg = $("rMsgSSO");
-
+  const st=$("rEstado"),msg=$("rMsgSSO");
   if(aprobado){
-    st.textContent = "✅ APROBADO";
-    st.className = "status ok";
-    msg.className = "sso-msg ok";
-    msg.innerHTML = "🎉 <b>¡Felicitaciones! Has aprobado la inducción básica.</b><br>Recuerda aplicar siempre lo aprendido en tu área de trabajo.";
-  } else if(enObservacion){
-    st.textContent = "⚠️ EN OBSERVACIÓN";
-    st.className = "status warn";
-    msg.className = "sso-msg warn";
-    msg.innerHTML = "⚠️ <b>Estás en observación. Tu puntaje está cerca del mínimo.</b><br>📍 <b>Acércate al área de SSO</b> para recibir refuerzo antes de reintentar el examen.";
+    st.textContent="✅ APROBADO";st.className="status ok";
+    msg.className="sso-msg ok";
+    msg.innerHTML="🎉 <b>¡Felicitaciones! Has aprobado la inducción básica.</b><br>Recuerda aplicar siempre lo aprendido en tu área de trabajo.";
+  } else if(enObs){
+    st.textContent="⚠️ EN OBSERVACIÓN";st.className="status warn";
+    msg.className="sso-msg warn";
+    msg.innerHTML="⚠️ <b>Tu puntaje está cerca del mínimo requerido.</b><br>📍 <b>Acércate al área de SSO</b> para recibir refuerzo antes de reintentar.";
   } else {
-    st.textContent = "❌ DESAPROBADO";
-    st.className = "status no";
-    msg.className = "sso-msg no";
-    msg.innerHTML = "❌ <b>Has desaprobado.</b><br>📍 <b>Acércate al área de SSO</b> para recibir orientación y programar un nuevo intento con preguntas diferentes.";
+    st.textContent="❌ DESAPROBADO";st.className="status no";
+    msg.className="sso-msg no";
+    msg.innerHTML="❌ <b>Has desaprobado esta evaluación.</b><br>📍 <b>Acércate al área de SSO</b> para orientación y programar un nuevo intento con preguntas diferentes.";
   }
 
-  $("dNom").textContent = colab.nombre;
-  $("dDni").textContent = colab.dni;
-  $("dEmp").textContent = colab.empresa;
-  $("dCar").textContent = colab.cargo;
-  $("dAre").textContent = colab.area;
-  $("dFec").textContent = fechaTxt;
-  $("dOk").textContent = `${ok} de ${examen.length}`;
-  $("dIntento").textContent = `N.° ${intentoActual}`;
+  $("dNom").textContent=colab.nombre;$("dDni").textContent=colab.dni;
+  $("dEmp").textContent=colab.empresa;$("dCar").textContent=colab.cargo;
+  $("dAre").textContent=colab.area;$("dFec").textContent=fechaTxt;
+  $("dOk").textContent=`${ok} de ${examen.length}`;
+  $("dIntento").textContent=`N.° ${intentoActual}`;
 
-  // Revisión
-  $("rRev").innerHTML = examen.map((p,i)=>{
-    if(p.tipo === "multiple"){
-      const bien = p.correcto;
-      return `<div class="rev ${bien?'ok':'no'}">
-        <p>${i+1}. ${esc(p.q)}</p>
-        <div class="r ${bien?'g':'b'}">Tu respuesta: ${"ABCD"[p.r]}. ${esc(p.o[p.r])}</div>
-        ${bien?'':`<div class="r g">Respuesta correcta: ${"ABCD"[p.a]}. ${esc(p.o[p.a])}</div>`}
-      </div>`;
-    } else if(p.tipo === "iperc"){
-      const bien = p.correcto;
-      const ev = p.iperEval || {};
-      const d = p.iperData || {};
-      return `<div class="rev ${bien?'ok':'no'}">
-        <p>${i+1}. IPERC Continuo – ${esc(p.actividad)}</p>
-        <div class="r ${ev.pOk?'g':'b'}">Peligro: "${esc(d.peligro||'—')}" ${ev.pOk?'✔':'✘ (esperado: caída/altura)'}</div>
-        <div class="r ${ev.rOk?'g':'b'}">Riesgo: "${esc(d.riesgo||'—')}" ${ev.rOk?'✔':'✘ (esperado: golpe/fractura/muerte)'}</div>
-        <div class="r ${ev.sOk?'g':'b'}">Severidad: ${d.severidad||'—'} ${ev.sOk?'✔':'✘ (mínimo 3 – Grave)'}</div>
-        <div class="r ${ev.prOk?'g':'b'}">Probabilidad: ${d.probabilidad||'—'} ${ev.prOk?'✔':'✘ (mínimo 3 – Probable)'}</div>
-      </div>`;
-    } else {
-      const bien = p.correcto;
-      return `<div class="rev ${bien?'ok':'warn'}">
-        <p>${i+1}. ${esc(p.q)}</p>
-        <div class="r ${bien?'g':'w'}">Tu respuesta: "${esc(p.resp||'')}" ${bien?'✔ Aceptada':'⚠ Incompleta o incorrecta'}</div>
-        ${bien?'':`<div class="r g">Pista: ${esc(p.hint)}</div>`}
-      </div>`;
+  // Revisión detallada
+  $("rRev").innerHTML=examen.map((p,i)=>{
+    if(p.tipo==="multiple"){
+      const b=p.correcto;
+      return `<div class="rev ${b?'ok':'no'}"><p>${i+1}. ${esc(p.q)}</p>
+        <div class="r ${b?'g':'b'}">Tu respuesta: ${"ABCD"[p.r]}. ${esc(p.o[p.r])} ${b?'✔':'✘'}</div>
+        ${b?'':`<div class="r g">Correcta: ${"ABCD"[p.a]}. ${esc(p.o[p.a])}</div>`}</div>`;
     }
+    if(p.tipo==="vf"){
+      const b=p.correcto;
+      return `<div class="rev ${b?'ok':'no'}"><p>${i+1}. ${esc(p.q)}</p>
+        ${p.stmts.map((st,j)=>{
+          const ok2=p.respVF[j]===st.correcto;
+          return `<div class="r ${ok2?'g':'b'}">${j+1}. "${esc(st.s)}" → Tu resp: ${p.respVF[j]===true?'VERDADERO':'FALSO'} ${ok2?'✔':'✘ (era: '+( st.correcto?'VERDADERO':'FALSO')+')'}</div>`;
+        }).join("")}</div>`;
+    }
+    if(p.tipo==="relacionar"){
+      const b=p.correcto;
+      return `<div class="rev ${b?'ok':'no'}"><p>${i+1}. ${esc(p.q)}</p>
+        ${p.pares.map((par,j)=>{
+          const ok2=p.selecciones[j]===par.der;
+          return `<div class="r ${ok2?'g':'b'}">"${esc(par.izq)}" → Tu resp: "${esc(p.selecciones[j]||'—')}" ${ok2?'✔':'✘ (era: "'+esc(par.der)+'")'}</div>`;
+        }).join("")}</div>`;
+    }
+    if(p.tipo==="iperc"){
+      const b=p.correcto;const ev=p.iperEval||{};const d=p.iperData||{};
+      return `<div class="rev ${b?'ok':'no'}"><p>${i+1}. IPERC – ${esc(p.actividad)}</p>
+        <div class="r ${ev.pOk?'g':'b'}">Peligro: "${esc(d.peligro||'—')}" ${ev.pOk?'✔':'✘'}</div>
+        <div class="r ${ev.rOk?'g':'b'}">Riesgo: "${esc(d.riesgo||'—')}" ${ev.rOk?'✔':'✘'}</div>
+        <div class="r ${ev.sOk?'g':'b'}">Severidad: ${d.severidad||'—'} ${ev.sOk?'✔':'✘ (mínimo 3)'}</div>
+        <div class="r ${ev.prOk?'g':'b'}">Probabilidad: ${d.probabilidad||'—'} ${ev.prOk?'✔':'✘ (mínimo 3)'}</div></div>`;
+    }
+    if(p.tipo==="open"){
+      const b=p.correcto;
+      return `<div class="rev ${b?'ok':'warn'}"><p>${i+1}. ${esc(p.q)}</p>
+        <div class="r ${b?'g':'w'}">Tu respuesta: "${esc(p.resp||'')}" ${b?'✔ Aceptada':'⚠ Incompleta'}</div>
+        ${b?'':`<div class="r g">Pista: ${esc(p.hint)}</div>`}</div>`;
+    }
+    return "";
   }).join("");
 
   window.scrollTo({top:0});
-
   guardar({
-    fecha: fechaTxt, intento: intentoActual,
-    dni: colab.dni, nombre: colab.nombre, empresa: colab.empresa, cargo: colab.cargo, area: colab.area,
-    correctas: ok, total: examen.length, nota: ok,
-    estado: aprobado ? "APROBADO" : enObservacion ? "EN OBSERVACION" : "DESAPROBADO",
-    detalle: examen.map((p,i)=>`${i+1}(${p.id||p.tipo}):${p.correcto?'✔':'✘'}`).join(" | ")
+    fecha:fechaTxt,intento:intentoActual,area:areaDetectada,
+    dni:colab.dni,nombre:colab.nombre,empresa:colab.empresa,cargo:colab.cargo,areaTexto:colab.area,
+    correctas:ok,total:examen.length,nota:ok,
+    estado:aprobado?"APROBADO":enObs?"EN OBSERVACION":"DESAPROBADO"
   });
 }
 
 async function guardar(d){
   const el=$("rGuardado");
-  if(!CONFIG.WEBAPP_URL){ el.innerHTML='<b style="color:var(--bad)">No se guardó en Google Sheets: falta configurar WEBAPP_URL.</b>'; return; }
+  if(!CONFIG.WEBAPP_URL){el.innerHTML='<b style="color:var(--bad)">No se guardó: falta WEBAPP_URL.</b>';return;}
   el.textContent="Guardando resultado…";
   try{
     const url=CONFIG.WEBAPP_URL+"?action=guardar&data="+encodeURIComponent(JSON.stringify(d));
     const res=await fetch(url,{cache:"no-store"});
     const j=await res.json();
-    if(j && j.ok){ el.innerHTML='<b style="color:var(--ok)">✔ Resultado registrado en la hoja de Google Sheets.</b>'; return; }
+    if(j&&j.ok){el.innerHTML='<b style="color:var(--ok)">✔ Resultado registrado en Google Sheets.</b>';return;}
     throw new Error((j&&j.error)||"respuesta inválida");
   }catch(err){
-    el.innerHTML='<b style="color:var(--bad)">✘ No se pudo registrar el resultado.</b><br><button class="btn sec" id="b-reint">Reintentar envío</button>';
+    el.innerHTML='<b style="color:var(--bad)">✘ No se pudo registrar.</b> <button class="btn sec" id="b-reint">Reintentar</button>';
     $("b-reint").onclick=()=>guardar(d);
   }
 }
